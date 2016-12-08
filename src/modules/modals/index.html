@@ -1,0 +1,44 @@
+<template>
+    <page class="au-animate modals">
+        <style>
+            .buttons-row{
+                justify-content:space-between;
+            }
+            .buttons-row ui-button{
+                margin: 0 10px 10px 10px;
+                flex:1;
+            }
+            .buttons-row ui-button:first-child{
+                margin-left: 0;
+            }
+            .buttons-row ui-button:last-child{
+                margin-right: 0;
+            }
+        </style>
+        <page-header>
+            <button action-back>
+                <i class="icon icon-back"></i>
+            </button>
+            Modals
+        </page-header>
+        <page-content class="content-block">
+            <p>There are 1:1 replacements of native Alert, Prompt and Confirm modals. 
+                They support callbacks, have very easy api and can be combined with each other. 
+                Check these examples:
+            </p>
+            <hbox class="buttons-row">
+                <ui-button class="raised" tap.delegate="buttonAlertTap()"><div>ALERT</div></ui-button>
+                <ui-button class="raised" tap.delegate="buttonConfirmTap()">CONFIRM</ui-button>
+                <ui-button class="raised" tap.delegate="buttonPromptTap()">PROMPT</ui-button>
+            </hbox>
+            <hbox class="buttons-row">
+                <ui-button class="raised" tap.delegate="buttonLoginTap()">LOGIN MODAL</ui-button>
+                <ui-button class="raised" tap.delegate="buttonPasswordTap()">PASSWORD</ui-button>
+            </hbox>
+            <hbox class="buttons-row">
+                <ui-button class="raised">ACTION SHEET</ui-button>
+                <ui-button class="raised" tap.delegate="buttonModalView()">POPUP</ui-button>
+            </hbox>
+        </page-content>
+    </page>
+</template>

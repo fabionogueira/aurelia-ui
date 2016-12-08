@@ -1,0 +1,53 @@
+ui-switch{
+    position:relative;
+}
+ui-switch label{
+    display: block;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0,0,0,.65);
+    font-size: 12px;
+}
+ui-switch input{
+    position:absolute;
+    margin:0;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 1;
+    opacity: 0;
+}
+ui-switch div{
+    width: 36px;
+    border-radius: 36px;
+    height: 14px;
+    background: #b0afaf;
+    margin: 6px 2px 7px 1px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: .3s;
+}
+ui-switch span {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: #fff;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,.4);
+    transform: translateX(0);
+    transition-duration: .3s;
+}
+ui-switch input:checked+div{
+    background: rgba(33,150,243,.5);
+}
+ui-switch input:checked+div span{
+    transform: translateX(16px);
+    background: #2196f3;
+}

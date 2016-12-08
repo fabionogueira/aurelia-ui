@@ -1,0 +1,120 @@
+<template>
+    <page class="au-animate checkbox">
+
+        <style>
+            .ckecboxes-list .item-content{
+                margin-left: 16px;
+            }
+        </style>
+
+        <page-header>
+            <button action-back>
+                <i class="icon icon-back"></i>
+            </button>
+            Checkboxes And Radios
+        </page-header>
+        <page-content class="list ckecboxes-list">
+            <div class="content-block-title">Checkbox group</div>
+            <list-block>
+                <div class="list-item" action-target="ui-checkbox">
+                    <ui-checkbox checked="true"></ui-checkbox>
+                    <div class="item-content">
+                        Books
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-checkbox">
+                    <ui-checkbox checked="false"></ui-checkbox>
+                    <div class="item-content">
+                        Movies
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-checkbox">
+                    <ui-checkbox></ui-checkbox>
+                    <div class="item-content">
+                        Food
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-checkbox">
+                    <ui-checkbox></ui-checkbox>
+                    <div class="item-content">
+                        Drinks
+                    </div>
+                </div>
+            </list-block>
+
+            <div class="content-block-title">Radio buttons group</div>
+            <list-block>
+                <div class="list-item" action-target="ui-radio">
+                    <ui-radio name="group1" checked="true"></ui-radio>
+                    <div class="item-content">
+                        Books
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-radio">
+                    <ui-radio name="group1"></ui-radio>
+                    <div class="item-content">
+                        Movies
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-radio">
+                    <ui-radio name="group1"></ui-radio>
+                    <div class="item-content">
+                        Food
+                    </div>
+                </div>
+                <div class="list-item" action-target="ui-radio">
+                    <ui-radio name="group1"></ui-radio>
+                    <div class="item-content">
+                        Drinks
+                    </div>
+                </div>
+            </list-block>
+
+            <div class="content-block-title">What is your favourite song?</div>
+            <list-block>
+                <div class="list-item" action-target="ui-radio">
+                    <div class="item-media">
+                        <img src="http://lorempixel.com/160/160/fashion/1" width="80" />
+                    </div>
+                    <div class="item-content item-content-multiline">
+                        <div class="item-title hbox">
+                            <span style="flex:1">Yellow Submarine</span>
+                            <div style="color:#757575;font-size:14px;">R$15,00</div>
+                        </div>
+                        <div class="item-subtitle">Beatles</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                    </div>
+                    <ui-radio name="group2" checked="true" style="margin-right:20px;"></ui-radio>
+                </div>
+                <div class="list-item" action-target="ui-radio">
+                    <div class="item-media">
+                        <img src="http://lorempixel.com/160/160/fashion/2" width="80" />
+                    </div>
+                    <div class="item-content item-content-multiline">
+                        <div class="item-title hbox">
+                            <span style="flex:1">Don't Stop Me Now</span>
+                            <div style="color:#757575;font-size:14px;">R$22,00</div>
+                        </div>
+                        <div class="item-subtitle">Queen</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                    </div>
+                    <ui-radio name="group2" style="margin-right:20px;"></ui-radio>
+                </div>
+                <div class="list-item" action-target="ui-radio">
+                    <div class="item-media">
+                        <img src="http://lorempixel.com/160/160/fashion/3" width="80" />
+                    </div>
+                    <div class="item-content item-content-multiline">
+                        <div class="item-title hbox">
+                            <span style="flex:1">Billie Jean</span>
+                            <div style="color:#757575;font-size:14px;">R$16,00</div>
+                        </div>
+                        <div class="item-subtitle">Michael Jackson</div>
+                        <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+                    </div>
+                    <ui-radio name="group2" style="margin-right:20px;"></ui-radio>
+                </div>
+            </list-block>
+        </page-content>
+    </page>
+</template>

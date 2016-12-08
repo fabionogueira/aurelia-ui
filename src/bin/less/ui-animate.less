@@ -1,0 +1,72 @@
+page.au-enter-active{
+    z-index: 4;
+    animation: showCenter56ToTop .4s;
+}
+
+//saída da view
+page.au-leave-active{
+    z-index: 2;
+    animation: hideToCenter56 .4s;
+}
+
+//animações específicas para view principal
+.main-view.au-enter-active{
+    z-index: 1;
+    animation: noneAnimation .4s;
+}
+.main-view.au-leave-active{
+    z-index: 1;
+    animation: noneAnimation .4s;
+}
+
+//entrada da buttons (checkbox -> buttons)
+.checkbox-buttons .buttons.au-enter-active{
+    z-index: 1;
+    animation: noneAnimation .4s;
+}
+//saída buttons (buttons -> checkbox)
+.buttons-checkbox .buttons.au-leave-active{
+    z-index: 1;
+    animation: noneAnimation .4s;
+}
+
+@keyframes moveToLeft {
+  0%   {}
+  100% {transform: translate3d(-100%, 0, 0)}
+}
+@keyframes moveToRight {
+  0%   {}
+  100% {transform: translate3d(100%, 0, 0)}
+}
+@keyframes moveLeftToRight{
+  0%   {transform: translate3d(-100%, 0, 0)}
+  100% {transform: none}
+}
+@keyframes moveRightToLeft{
+  0%   {transform: translate3d(100%, 0, 0)}
+  100% {transform: none}
+}
+@keyframes moveToLeft40{
+  0%   {}
+  100% {transform: translate3d(-40%, 0, 0)}
+}
+@keyframes moveLeft40ToRight{
+  0%   {transform: translate3d(-40%, 0, 0)}
+  100% {transform: none}
+}
+@keyframes moveLeft40ToRight{
+  0%   {transform: translate3d(-40%, 0, 0)}
+  100% {transform: none}
+}
+@keyframes showCenter56ToTop {
+    from {opacity:0; transform:translate3d(0,56px,0)}
+    to   {opacity:1; transform:translate3d(0,0,0)}
+}
+@keyframes hideToCenter56{
+    from {}
+    to   {opacity:0; transform:translate3d(0,56px,0)}
+}
+@keyframes noneAnimation{
+    from {}
+    to   {opacity:1}
+}

@@ -1,0 +1,71 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 13000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-overlay{
+    background: rgba(0,0,0,.4);
+}
+.modal-alert{
+    margin-top: -200px;
+    min-width: 260px;
+    border-radius: 3px;
+    color: #757575;
+    background: #fff;
+    font-size: 16px;
+    padding: 24px 24px 2px 20px;
+    box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+}
+.modal-alert-title {
+    font-weight: 500;
+    font-size: 20px;
+    color: #212121;
+    line-height: 1.3;
+}
+.modal-alert-text {
+    line-height: 1.5;
+}
+.modal-alert-title+.modal-alert-text {
+    margin-top: 20px;
+}
+.modal-alert-buttons{
+    justify-content: flex-end;
+    height: 48px;
+    padding: 6px 8px;
+    margin: 14px -24px 0 -20px;
+    overflow: hidden;
+}
+
+/* força usar 3D */
+.modal-overlay, .modal-alert{transform:translate3d(0,0,0)}
+
+/* efeitos de entrada e saída do overlay */
+.modal-overlay.au-enter-active{animation: overlayShow .4s;}
+.modal-overlay.au-leave-active{animation: overlayHide .4s;}
+
+/* efeitos de entrada e saída do alert */
+.modal-overlay.au-enter-active .modal-alert{animation: alertShow .4s;}
+.modal-overlay.au-leave-active .modal-alert{animation: alertHide .4s;}
+
+@keyframes overlayShow {
+  0%   {opacity:0;}
+  100% {opacity:1;}
+}
+@keyframes overlayHide {
+  0%   {opacity:1;}
+  100% {opacity:0;}
+}
+@keyframes alertShow {
+  0%   {opacity:0; transform:scale(1.185);}
+  100% {opacity:1; transform:scale(1);}
+}
+@keyframes alertHide {
+  0%   {opacity:1; transform:scale(1);}
+  100% {opacity:0; transform:scale(.8);}
+}

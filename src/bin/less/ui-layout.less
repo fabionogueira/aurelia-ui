@@ -1,0 +1,33 @@
+/* layout manager */
+hbox, .hbox{display:flex; justify-content:flex-start; align-items:stretch; flex-direction:row;}
+vbox, .vbox{display:flex; justify-content:flex-start; align-items:stretch; flex-direction:column;}
+client, .client{flex:1;position:relative;}
+vbox[layout="start"],  hbox[layout="start"],  .vbox[layout="start"],  .hbox[layout="start"] {justify-content:flex-start;}
+vbox[layout="center"], hbox[layout="center"], .vbox[layout="center"], .hbox[layout="center"]{justify-content:center;}
+vbox[layout="end"],    hbox[layout="end"],    .vbox[layout="end"],    .hbox[layout="end"]   {justify-content:flex-end;}
+vbox[layout="space-around"],  hbox[layout="space-around"],  .vbox[layout="space-around"],  .hbox[layout="space-around"] {justify-content:space-around;}
+vbox[layout="space-between"], hbox[layout="space-between"], .vbox[layout="space-between"], .hbox[layout="space-between"]{justify-content:space-between;}
+vbox[layout="center center"], hbox[layout="center"],        .vbox[layout="center center"], .hbox[layout="center"]       {justify-content:center; align-items:center;}
+.spacer{flex-grow: 1;}
+.full{position:absolute;top:0;left:0;right:0;bottom:0}
+
+/* icon */
+icon{display:block;position:relative;fill:#757575}
+
+/* native elements */
+a, input, select, textarea, button {outline:0;}
+a{color:inherit; text-decoration:none;}
+button{transition-duration: .3s; background:transparent; border:none; cursor:pointer;}
+button[is-pressed]{background:rgba(0,0,0,.1);}
+
+/* page element */
+page{box-shadow: 0 0 6px rgba(45, 45, 45, 0.14);background:#fff}
+page, .page-container{display:block; position:absolute; top:0; left:0; right:0; bottom:0}
+page-header{position:absolute; display:flex; justify-content:center; align-items:center; flex-direction:row; background:#2196f3; color:#fff; left:0; top:0; height:56px; font-size:20px; width:100%; z-index:500;}
+page-header button[action-back]{position:absolute; padding:0 16px; left:0px; top:0; height:100%;}
+page-content{position:absolute; overflow:auto; left:0; width:100%; top:56px; bottom:0; padding-bottom:20px;}
+.content-block{
+    margin: 32px 0;
+    padding: 0 16px;
+}
+

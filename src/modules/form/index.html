@@ -1,0 +1,77 @@
+<template>
+    <page class="au-animate">
+        <page-header>
+            <button action-back>
+                <i class="icon icon-back"></i>
+            </button>
+            Form Elements
+        </page-header>
+        <page-content class="list">
+            <div class="content-block-title">Full Layout</div>
+            <list-block>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-account"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" label="Name" placeholder="Your name"></ui-textfield>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-email"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" label="E-mail" placeholder="E-mail"></ui-textfield>                        
+                    </div>
+                </div>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-calendar-today"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" label="Bird date" type="date"></ui-textfield>                        
+                    </div>
+                </div>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-check"></icon>
+                    <div class="item-content" style="border-bottom:none">
+                        <ui-switch label="Switch" checked="true"></ui-switch>                        
+                    </div>
+                </div>
+                <div class="list-item" style="padding-top:10px">
+                    <icon class="item-left" src="icon-settings"></icon>
+                    <div class="item-content">
+                        <ui-slider label="Slider"></ui-slider>                        
+                    </div>
+                </div>
+            </list-block>
+
+            <div class="content-block-title">With Floating Labels</div>
+            <list-block>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-account"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" class="floating" placeholder="Your name"></ui-textfield>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-email"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" class="floating" placeholder="E-mail"></ui-textfield>                        
+                    </div>
+                </div>
+            </list-block>
+
+            <div class="content-block-title">Icons and Labels</div>
+            <list-block>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-account"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" placeholder="Your name"></ui-textfield>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <icon class="item-left" src="icon-email"></icon>
+                    <div class="item-content">
+                        <ui-textfield style="flex:1;" placeholder="E-mail"></ui-textfield>                        
+                    </div>
+                </div>
+            </list-block>      
+        </page-content>
+    </page>
+</template>

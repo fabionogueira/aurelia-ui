@@ -1,0 +1,92 @@
+
+ui-button{
+    color: #2196f3;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 2px;
+    line-height: 36px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: 0 0;
+    padding: 0 10px;
+    margin: 0;
+    height: 36px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: inherit;
+    cursor: pointer;
+    min-width: 64px;
+    padding: 0 8px;
+    position: relative;
+    overflow: hidden;
+    outline: 0;
+    border: none;
+    transition-duration: .3s;
+    transform: translate3d(0,0,0);
+}
+ui-button[is-pressed] {
+    background: rgba(0,0,0,.1);
+}
+ui-button.raised {
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+}
+ui-button.raised[is-pressed]{
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)
+}
+
+ui-button.color-red:not(.fill)   {color: #f44336!important;}
+ui-button.color-green:not(.fill) {color: #4caf50!important;}
+ui-button.color-blue:not(.fill)  {color: #2196f3!important;}
+ui-button.color-orange:not(.fill){color: #ff9800!important;}
+ui-button.color-pink:not(.fill)  {color: #e91e63!important;}
+ui-button.color-purple:not(.fill){color: #9c27b0!important;}
+ui-button.color-cyan:not(.fill)  {color: #00bcd4!important;}
+ui-button.color-teal:not(.fill)  {color: #009688!important;}
+ui-button.color-indigo:not(.fill){color: #3f51b5!important;}
+
+ui-button.fill,
+ui-button.fill.color-blue               {background: #2196f3!important;color:#fff;}
+ui-button.fill[is-pressed],
+ui-button.fill.color-blue[is-pressed]   {background: #0c82df!important;}
+
+ui-button.fill.color-red                {background: #f44336!important;color:#fff;}
+ui-button.fill.color-red[is-pressed]    {background: #d32f2f!important;}
+
+ui-button.fill.color-green              {background: #4caf50!important;color:#fff;}
+ui-button.fill.color-green[is-pressed]  {background: #388e3c!important;}
+
+ui-button.fill.color-orange             {background: #ff9800!important;color:#fff;}
+ui-button.fill.color-orange[is-pressed] {background: #f57c00!important;}
+
+ui-button.fill.color-pink               {background: #e91e63!important;color:#fff;}
+ui-button.fill.color-pink[is-pressed]   {background: #c2185b!important;}
+
+ui-button.fill.color-purple             {background: #9c27b0!important;color:#fff;}
+ui-button.fill.color-purple[is-pressed] {background: #7b1fa2!important;}
+
+ui-button.fill.color-cyan               {background: #00bcd4!important;color:#fff;}
+ui-button.fill.color-cyan[is-pressed]   {background: #0097a7!important;}
+
+ui-button.fill.color-teal               {background: #009688!important;color:#fff;}
+ui-button.fill.color-teal[is-pressed]   {background: #00897b!important;}
+
+ui-button.fill.color-indigo             {background: #3f51b5!important;color:#fff;}
+ui-button.fill.color-indigo[is-pressed] {background: #303f9f!important;}
+
+ui-button.floating{
+    min-width: 32px;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    z-index: 1500;
+    box-shadow: 0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23);
+    overflow: hidden;
+}

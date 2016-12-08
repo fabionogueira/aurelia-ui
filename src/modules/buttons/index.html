@@ -1,0 +1,82 @@
+<template>
+    <page class="au-animate buttons">
+        <page-header>
+            <button action-back>
+                <i class="icon icon-back"></i>
+            </button>
+            ui-button
+        </page-header>
+        <page-content>
+            <div class="content-block-title">Flat Buttons</div>
+            <hbox style="justify-content:space-around;">
+                <ui-button tap.delegate="onTap($event)">BUTTON</ui-button>
+                <ui-button>BUTTON</ui-button>
+                <ui-button>BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Raised Buttons</div>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="raised">BUTTON</ui-button>
+                <ui-button class="raised">BUTTON</ui-button>
+                <ui-button class="raised">BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Raised Fill Buttons</div>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="raised fill">BUTTON</ui-button>
+                <ui-button class="raised fill">BUTTON</ui-button>
+                <ui-button class="raised fill">BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Colors Buttons</div>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="color-red">BUTTON</ui-button>
+                <ui-button class="color-green">BUTTON</ui-button>
+                <ui-button class="color-blue">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="color-orange">BUTTON</ui-button>
+                <ui-button class="color-pink">BUTTON</ui-button>
+                <ui-button class="color-purple">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="color-cyan">BUTTON</ui-button>
+                <ui-button class="color-teal">BUTTON</ui-button>
+                <ui-button class="color-indigo">BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Colors Fills Buttons</div>
+            <hbox style="justify-content:space-around;margin-bottom:3px;">
+                <ui-button class="fill color-red">BUTTON</ui-button>
+                <ui-button class="fill color-green">BUTTON</ui-button>
+                <ui-button class="fill color-blue">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;margin-bottom:3px;">
+                <ui-button class="fill color-orange">BUTTON</ui-button>
+                <ui-button class="fill color-pink">BUTTON</ui-button>
+                <ui-button class="fill color-purple">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;margin-bottom:3px;">
+                <ui-button class="fill color-cyan">BUTTON</ui-button>
+                <ui-button class="fill color-teal">BUTTON</ui-button>
+                <ui-button class="fill color-indigo">BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Color Raised Fill Buttons</div>
+            <hbox style="justify-content:space-around;margin-bottom:6px;">
+                <ui-button class="raised fill color-red">BUTTON</ui-button>
+                <ui-button class="raised fill color-green">BUTTON</ui-button>
+                <ui-button class="raised fill color-blue">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;margin-bottom:6px;">
+                <ui-button class="raised fill color-orange">BUTTON</ui-button>
+                <ui-button class="raised fill color-pink">BUTTON</ui-button>
+                <ui-button class="raised fill color-purple">BUTTON</ui-button>
+            </hbox>
+            <hbox style="justify-content:space-around;margin-bottom:6px;">
+                <ui-button class="raised fill color-cyan">BUTTON</ui-button>
+                <ui-button class="raised fill color-teal">BUTTON</ui-button>
+                <ui-button class="raised fill color-indigo">BUTTON</ui-button>
+            </hbox>
+            <div class="content-block-title">Floating Button</div>
+            <hbox style="justify-content:space-around;">
+                <ui-button class="floating fill color-red"><i class="icon icon-plus"></i></ui-button>
+            </hbox>
+        </page-content>
+    </page>
+</template>
