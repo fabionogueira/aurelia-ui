@@ -4,6 +4,8 @@ export function configure(config: FrameworkConfiguration) {
   config.globalResources([
     './elements/icon',
 
+    './elements/modal-view',
+
     './elements/ui-accordion',
     './elements/ui-button',
     './elements/ui-checkbox',

@@ -56,10 +56,7 @@ export class UIAlert{
 
         this.remove = this.compiler.compile(template, this);
 
-        ModalService.captureCancel( (event)=>{
-            event.cancel = true;
-            this.hide(event.origin=='key' ? 27 : -1);
-        });
+        ModalService.captureCancel(this.cancelHandle, this);
 
         return {
             on:(evt, fn)=>{
@@ -70,10 +67,17 @@ export class UIAlert{
         }
     }
 
+    private cancelHandle(event){
+        event.cancel = true;
+        this.hide(event.origin=='key' ? 27 : -1);
+    }
+
     hide(index?){
         let i, o, e;
 
         if (this.remove){
+            ModalService.removeCaptureCancel(this.cancelHandle);
+
             this.remove();
             
             e = this.events['hide'];

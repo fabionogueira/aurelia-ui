@@ -19,34 +19,24 @@
     }
  */
 
-import {inject, noView, ViewCompiler, ViewResources, Container, ViewSlot, createOverrideContext} from 'aurelia-framework';
+import {inject, noView, } from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {DOMSelector} from './index';
-import {Compiler} from './compiler';
 
-declare var require:any;
-
-let modalVisible = [];
-let isCancel = false;
+let routerIsCanceled = false;
 let containerHTMLElement; 
 let modalParams = {};
 let routerInstance;
 let registeredCaptureCancel=[]
+let modalIndex=-1;
 
 if (!location.hash){
     location.hash = '#/';
 }
 
-@inject(ViewCompiler, ViewResources, Container, Router)
+@inject(Router)
 export class ModalService {
-    private viewCompiler
-    private resources
-    private container
 
-    constructor(viewCompiler, resources, container, router) {
-        this.viewCompiler = viewCompiler;
-        this.resources = resources;
-        this.container = container;
+    constructor(router) {
         routerInstance = router;
     }
  
@@ -66,50 +56,24 @@ export class ModalService {
         }
     }
 
-    static captureCancel(fn){
+    static captureCancel(fn, context?){
+        fn.context = context;
         registeredCaptureCancel.push(fn);        
+    }
+    static removeCaptureCancel(fn){
+        let i;
+
+        for (i=0; i<registeredCaptureCancel.length; i++){
+            if (registeredCaptureCancel[i]===fn){
+                fn.context = null;
+                return registeredCaptureCancel.splice(i,1);
+            }
+        }        
     }
 
     configure(config){
         let modalStep = new ModalStep(this);
         config.addPipelineStep('authorize', modalStep);
-    }
-
-    insert(containerElement, html, viewModel, routingContext) {
-        let viewFactory = this.viewCompiler.compile(html);
-        let view = viewFactory.create(this.container);
-        let anchorIsContainer = true;
-        let viewSlot = new ViewSlot(containerElement, anchorIsContainer);
-        let routerParam;
-
-        viewSlot.add(view);
-        viewSlot.attached();
-
-        if (typeof(viewModel.modalAttached)=='function'){
-            viewModel.modalAttached(containerElement.lastElementChild);
-        }
-
-        view.bind(viewModel, createOverrideContext(viewModel));
-        
-        routerParam = modalParams[routingContext.config.name];
-        delete(modalParams[routingContext.config.name]);
-
-        if (viewModel.setRouterParam){
-            viewModel.setRouterParam(routerParam);
-        }
-        
-        modalVisible.push(viewModel);
-        
-        viewModel.$$index = modalVisible.length-1;
-        viewModel.closeModal = () => {
-            modalVisible.splice(viewModel.$$index,1);
-            viewSlot.remove(view);
-            view.unbind();
-        };
-
-        if (typeof(viewModel.modalShow)=='function'){
-            viewModel.modalShow();
-        }
     }
 }
 
@@ -128,44 +92,39 @@ class ModalStep {
 
         //se rota de modal
         if (routingContext.config.route.substring(0,6)=='modal/'){           
-            let modalService = this.modalService;
+            let url, el = <any>document.querySelector('modal-view');
             let viewPortInstructions = routingContext.viewPortInstructions.default;
-            
-            require(["text!"+routingContext.config.moduleId+'.html'], function(html){
-                let viewModel = viewPortInstructions.component.viewModel;
 
-                if (!containerHTMLElement){
-                    containerHTMLElement = document.body.appendChild(document.createElement('div'));
-                    containerHTMLElement.style.cssText='display:block;position:fixed;top:0;left:0;z-index:999';
-                }
+            if (el){
+                modalIndex++;
+                url = routingContext.config.moduleId+'.html';
+                el.au.controller.viewModel.loadView(modalIndex, url, viewPortInstructions.component.viewModel);
+            }
 
-                modalService.insert(containerHTMLElement, html, viewModel, routingContext);
-            });
-
-            isCancel = true;
+            routerIsCanceled = true;
 
             return next.cancel();
         }
-
 
         return next();
     }
 }
 
 window.addEventListener('popstate', (event) => {
-    let isModalOpennig = location.hash.substring(0,7) === '#/modal';
+    let isModalOpennig = location.hash.substring(0,8) === '#/modal/';
     
     if (!location.hash){
         return location.hash = '#/';
     }
 
-    if (!isCancel && !isModalOpennig && modalVisible.length>0){
-        let viewModel = modalVisible[modalVisible.length-1];
-      
-        viewModel.closeModal();
+    if (!routerIsCanceled && !isModalOpennig && modalIndex > -1){
+        let url, el = <any>document.querySelector('modal-view');
+        if (el){
+            el.au.controller.viewModel.unloadView(modalIndex--);
+        }
     }
 
-    isCancel = false;
+    routerIsCanceled = false;
 });
 document.addEventListener('keydown', (event)=>{
     if (event.keyCode==27){
@@ -174,22 +133,24 @@ document.addEventListener('keydown', (event)=>{
 })
 
 function processRegisteredCancel(origin){
-    let i, e, cancel=false;
+    let i, e, cancel=false, a=registeredCaptureCancel;
 
-    registeredCaptureCancel.forEach((fn)=>{
+    registeredCaptureCancel = [];
+
+    a.forEach((fn)=>{
         e = {
             "origin": origin,
             "cancel": false
         };
 
-        fn(e);
+        fn.apply(fn.context, [e]);
+        fn.context = null;
 
         if (e.cancel){
             cancel = true;
         }
     });
 
-    registeredCaptureCancel = [];
 
     return cancel;
 }

@@ -47,6 +47,6 @@ export class Modals{
     }
 
     buttonModalView(){
-
+        location.hash = '#/modal/view1';
     }
 }

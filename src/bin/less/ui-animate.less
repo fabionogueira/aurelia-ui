@@ -30,6 +30,20 @@ page.au-leave-active{
     animation: noneAnimation .4s;
 }
 
+//animações para view modal
+modal-view .au-enter-active{
+    z-index: 1;
+    animation: showBottomToTop .4s;
+}
+modal-view .au-leave-active{
+    z-index: 1;
+    animation: hideToBottom .4s;
+}
+
+@keyframes noneAnimation{
+    from {}
+    to   {opacity:1}
+}
 @keyframes moveToLeft {
   0%   {}
   100% {transform: translate3d(-100%, 0, 0)}
@@ -66,7 +80,19 @@ page.au-leave-active{
     from {}
     to   {opacity:0; transform:translate3d(0,56px,0)}
 }
-@keyframes noneAnimation{
+@keyframes showBottomToTop {
+    from {transform:translate3d(0,100%,0)}
+    to   {transform:translate3d(0,0,0)}
+}
+@keyframes hideToBottom{
     from {}
+    to   {transform:translate3d(0,100%,0)}
+}
+@keyframes showOverlay{
+    from {opacity:0}
     to   {opacity:1}
+}
+@keyframes hideOverlay{
+    from {opacity:1}
+    to   {opacity:0}
 }

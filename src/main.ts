@@ -12,8 +12,7 @@ import environment from './environment';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('bin')
-    .feature('resources');
+    .feature('bin');
 
   aurelia.use.plugin('aurelia-animator-css');
 
