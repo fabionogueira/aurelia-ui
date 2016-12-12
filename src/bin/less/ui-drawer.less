@@ -1,13 +1,15 @@
-.ng-ui-drawer{
+@import 'variables';
+
+ui-drawer{
+    z-index:@z-index-ui-drawer;
     position:fixed;
     top:0;
     bottom:0;
     left:0;
     width:1px;
     display:block;
-    z-index:10;
 }
-.ng-ui-drawer .ng-ui-drawer-obfuscator{
+ui-drawer .ui-drawer-obfuscator{
     position:fixed;
     display:none;
     top:0;
@@ -15,13 +17,13 @@
     right:0;
     bottom:0;
 }
-.ng-ui-drawer:not([right]) .ng-ui-drawer-content{
+ui-drawer:not([right]) .ui-drawer-content{
     left:0;
 }
-.ng-ui-drawer[right] .ng-ui-drawer-content{
+ui-drawer[right] .ui-drawer-content{
     right:0;
 }
-.ng-ui-drawer .ng-ui-drawer-content{
+ui-drawer .ui-drawer-content{
     position:fixed;
     top:0;
     height:100%;
@@ -30,82 +32,82 @@
 }
 
 /* customizáveis */
-.ng-ui-drawer-content{
+.ui-drawer-content{
     width:250px;
     background-color:#fff;
 }
-.ng-ui-drawer-obfuscator{
+.ui-drawer-obfuscator{
      background:rgba(0, 0, 0, 0.37);
 }
 
 /* animação */
-.ng-ui-drawer-cancel-animate .ng-ui-drawer-content{
+.ui-drawer-cancel-animate .ui-drawer-content{
     transition:none!important;
 }
-.ng-ui-drawer-hide{
+.ui-drawer-hide{
     display:none;
 }
-.ng-ui-drawer-hide-add{
+.ui-drawer-hide-add{
     display:block!important;
 }
-.ng-ui-drawer-hide--none {
+.ui-drawer-hide--none {
     overflow: hidden;
 }
-.ng-ui-drawer-hide--none .ng-ui-drawer-content{
+.ui-drawer-hide--none .ui-drawer-content{
     display:none;
 }
-.ng-ui-drawer-hide-remove {
+.ui-drawer-hide-remove {
     display:block!important;
 }
 
 /* animação do fundo */
-.ng-ui-drawer-hide .ng-ui-drawer-obfuscator{
+.ui-drawer-hide .ui-drawer-obfuscator{
     opacity: 1;
     transition: opacity 00ms;
 }
-.ng-ui-drawer-hide .ng-ui-drawer-obfuscator{
+.ui-drawer-hide .ui-drawer-obfuscator{
     opacity:0;
 }
 
 /* animação do painel */
-.ng-ui-drawer{
+.ui-drawer{
     transition:transform 300ms;
 }
-.ng-ui-drawer-content{
+.ui-drawer-content{
     transition:transform 300ms;
     transform:translate3d(0, 0, 0);
 }
-.ng-ui-drawer-hide .ng-ui-drawer-content{
+.ui-drawer-hide .ui-drawer-content{
     transition:transform 300ms;
     transform:translate3d(-110%, 0, 0);
 }
 
 /* animação do drawer alinhado à direita*/
-.ng-ui-drawer-hide[right] .ng-ui-drawer-content{
+.ui-drawer-hide[right] .ui-drawer-content{
     transform:translate3d(100%, 0, 0);
 }
 
 /* comportamento com tela de 720px ou menos */
 @media screen and (max-width: 720px) {
     /*fecha o painel caso não esteja aberto via javascript */
-    .ng-ui-drawer:not([state="open"]) .ng-ui-drawer-content{
+    .ui-drawer:not([state="open"]) .ui-drawer-content{
         transform:translate3d(-110%, 0, 0);
     }
-    .ng-ui-drawer[right]:not([state="open"]) .ng-ui-drawer-content{
+    .ui-drawer[right]:not([state="open"]) .ui-drawer-content{
         transform:translate3d(100%, 0, 0);
     }
     
     /*oculta o fundo caso não esteja aberto via javascript */
-    .ng-ui-drawer:not([state="open"]) .ng-ui-drawer-obfuscator{
+    .ui-drawer:not([state="open"]) .ui-drawer-obfuscator{
         display:none;
     }
     
-    .ng-ui-drawer[docked][state="open"] .ng-ui-drawer-obfuscator{
+    .ui-drawer[docked][state="open"] .ui-drawer-obfuscator{
         display:block;
         width:100%;
     }
     
-    .ng-ui-drawer-hide--none{
+    .ui-drawer-hide--none{
         display:block;
     }
 }

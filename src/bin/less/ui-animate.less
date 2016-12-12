@@ -1,11 +1,13 @@
+@import 'variables';
+
 page.au-enter-active{
-    z-index: 4;
+    z-index: @z-index-ui-animate-enter-active;
     animation: showCenter56ToTop .4s;
 }
 
 //saída da view
 page.au-leave-active{
-    z-index: 2;
+    z-index: @z-index-ui-animate-leave-active;;
     animation: hideToCenter56 .4s;
 }
 

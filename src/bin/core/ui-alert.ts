@@ -25,12 +25,19 @@ import {ModalService} from './modal-service';
 @inject(Compiler)
 export class UIAlert{
     private events = {};
-    private data = {};
 
-    constructor(private compiler: Compiler, private remove) {}
+    constructor(private compiler: Compiler, private remove) {
+        this.context = {
+            UIAlert : this,
+            onTap   : null,
+            data    : null
+        } 
+    }
 
-    onTap(index){
-        this.hide(index);
+    context:{
+        UIAlert     : UIAlert,
+        onTap(index): any,
+        data        : any
     }
 
     show(text, title:string='', buttons:string[]=['OK'], html:string=''){
@@ -54,7 +61,11 @@ export class UIAlert{
             </div>
         </div>`;
 
-        this.remove = this.compiler.compile(template, this);
+        this.context.UIAlert = this;
+        this.context.onTap = (index) => {this.context.UIAlert.hide(index);}
+        this.context.data = {};
+
+        this.remove = this.compiler.compile(template, this.context);
 
         ModalService.captureCancel(this.cancelHandle, this);
 
@@ -73,25 +84,21 @@ export class UIAlert{
     }
 
     hide(index?){
-        let i, o, e;
+        let o, e;
 
         if (this.remove){
             ModalService.removeCaptureCancel(this.cancelHandle);
 
             this.remove();
             
+            delete(this.context.UIAlert);
+            delete(this.context.onTap);
+
             e = this.events['hide'];
             this.events['hide'] = null;
 
             if (e){
-                o = {};
-
-                for (i in this.data){
-                    o[i] = this.data[i];
-                }
-
-                this.data = {};
-                
+                o = JSON.parse(JSON.stringify(this.context.data));                
                 e.fn(index, o);
             }
         }

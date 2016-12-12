@@ -9,6 +9,7 @@ export function configure(config: FrameworkConfiguration) {
     './elements/ui-accordion',
     './elements/ui-button',
     './elements/ui-checkbox',
+    './elements/ui-drawer',
     './elements/ui-radio',
     './elements/ui-slider',
     './elements/ui-switch',

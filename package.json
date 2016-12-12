@@ -42,5 +42,21 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-typescript-preprocessor": "^0.2.1"
+  },
+  "config":{
+    "prod_root": "./dist",
+    "prod_scripts": "./dist/scripts",
+    "prod_server": "/var/www/html/aui-dist"
+  },
+  "scripts": { 
+    "server" : "au run --watch",
+    "copy"   : "cp -R ./dist/* $npm_package_config_prod_server",
+    "mkdir"  : "mkdir -p ./dist/scripts",
+    "build1" : "au build --env prod",
+    "build2" : "npm run mkdir && cp ./index.html $npm_package_config_prod_root",
+    "build3" : "cp ./scripts/app-bundle.js $npm_package_config_prod_scripts",
+    "build4" : "cp ./scripts/vendor-bundle.js $npm_package_config_prod_scripts",
+    "build5" : "cp ./scripts/hammer.min.js $npm_package_config_prod_scripts",
+    "build"  : "npm run build1 && npm run build2 && npm run build3 && npm run build4 && npm run build5 && npm run copy"
   }
 }
