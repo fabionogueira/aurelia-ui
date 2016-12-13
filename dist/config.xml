@@ -19,6 +19,10 @@
 		<splash src="./images/res/screens/android/screen-hdpi-portrait.png" qualifier="" />
 	</platform>
 
+	<preference name="phonegap-version" />
+
+	<gap:plugin name="cordova-plugin-crosswalk-webview-pgb-adapt" source="npm"/>
+
 	<platform name="winphone"></platform>
 	<icon src="icon.png" />
 </widget>
