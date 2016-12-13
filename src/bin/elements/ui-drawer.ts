@@ -54,7 +54,6 @@ export class UIDrawer{
 
     private cancelHandle(event){
         if (this.obfuscatorIsVisible()){
-            console.log(event.target)
             if (!event.target) event.cancel = true;
             this.hide();
         }
@@ -66,7 +65,6 @@ export class UIDrawer{
 
     private contentIsVisible(){
         let r = (<HTMLElement>this.element.children[1]).getBoundingClientRect();
-        console.log(r.left);
         return r.left>=0 || r.right>=0;
     }
 
