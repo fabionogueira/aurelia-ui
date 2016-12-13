@@ -21,20 +21,18 @@ let dispatcher = {
      * dispatcher.emit('tap', {v:1})
      */
     emit: (eventName:string, event, element?:HTMLElement) => {
-        let i, g, au, fn, customEvent;
+        let g, controller, fn, customEvent;
         
         event = event || {};
         event.$target = getTargetElement(event);
 
-        //chama a função correspondente ao evento, definida na viewModel de todos as classes
+        //chama a função definida na viewModelm correspondente ao evento
         if (element){
-            au = element['au'];
-            for (i in au){
-                if (i!='controller'){
-                    fn = au[i].viewModel['on'+eventName[0].toUpperCase()+eventName.substring(1)];
-                    if (fn){
-                        fn.call(au[i].viewModel, event);
-                    }
+            controller = element['au'].controller;
+            if (controller){
+                fn = controller.viewModel['on'+eventName[0].toUpperCase()+eventName.substring(1)];
+                if (fn){
+                    fn.call(controller.viewModel, event);
                 }
             }
         }
@@ -51,7 +49,7 @@ let dispatcher = {
 
         //dispacha o evento para as instâncias do custom element
         customEvent._dispatcher = true;
-        if (element) element.dispatchEvent(customEvent);
+        event.$target.dispatchEvent(customEvent);
     },
 
     on: (eventName:string, fn:Function)=>{
@@ -130,7 +128,7 @@ function eventsHandle(event){
     let e, actions;
 
     if (event._dispatcher) return;
-    
+
     e = EVENTS_TRANSLATE[event.type];
     updateActiveElement();
     
@@ -149,13 +147,8 @@ function eventsHandle(event){
     event._dispatcher = true;
 }
 function getTargetElement(event){
-    let target = event.toElement || event.srcElement || event.target;
-    if (!target && event.touches){
-        target = event.touches[0].target;
-    }
-    return target;
+    return event.toElement || event.srcElement || event.target || event.touches && event.touches[0].target;
 }
-
 
 HAMMER.on("panleft panright tap press", eventsHandle);
 document.addEventListener('keydown', (event)=>(event.keyCode==9) ? updateActiveElement(): null);

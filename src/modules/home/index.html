@@ -1,35 +1,10 @@
 <template>
     <page class="au-animate main-view">
-        
-        <style>
-            .home-list icon{
-                fill:#607D8B;
-            }
-        </style>
-
-        <page-header>
-            Aurelia-UI
+        <page-header style="justify-content:flex-start;">
+            <ui-button class="button-page-header" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </ui-button>
+            <page-header-title>HOME</page-header-title>
         </page-header>
-        <page-content class="list">
-            <div class="content-block-title">Elements</div>
-            <list-block class="home-list">
-                <a class="list-item item-link" href="#/buttons">
-                    <div class="item-media"><icon src="icon-checkbox"></icon></div>
-                    <div class="item-content">Buttons</div>
-                </a>
-                <a class="list-item item-link" href="#/form">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Form</div>
-                </a>
-                <a class="list-item item-link" href="#/checkbox">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Checkboxes And Radios</div>
-                </a>
-                <a class="list-item item-link" href="#/modals">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Modals</div>
-                </a>
-            </list-block>
-        </page-content>
     </page>
 </template>

@@ -1,4 +1,40 @@
 <template>
-  <router-view class="page-container" swap-order="with"></router-view>
-  <modal-view></modal-view>
+    <style>
+        @media screen and (min-width: 780px) {
+            .page-container {
+                left: 280px;
+            }
+            [action-drawer]{
+                display: none!important;
+            }
+        }
+    </style>
+    <ui-drawer name="drawer1" docked style="width:280px">
+        <page-header>DRAWER</page-header>
+        <page-content class="list">
+            <div class="content-block-title">Elements</div>
+            <list-block class="home-list">
+                <a class="list-item item-link" href="#/buttons">
+                    <div class="item-media">
+                        <icon src="icon-checkbox"></icon>
+                    </div>
+                    <div class="item-content">Buttons</div>
+                </a>
+                <a class="list-item item-link" href="#/form">
+                    <icon class="item-left" src="icon-checkbox"></icon>
+                    <div class="item-content">Form</div>
+                </a>
+                <a class="list-item item-link" href="#/checkbox">
+                    <icon class="item-left" src="icon-checkbox"></icon>
+                    <div class="item-content">Checkboxes And Radios</div>
+                </a>
+                <a class="list-item item-link" href="#/modals">
+                    <icon class="item-left" src="icon-checkbox"></icon>
+                    <div class="item-content">Modals</div>
+                </a>
+            </list-block>
+        </page-content>
+    </ui-drawer>
+    <router-view class="page-container" swap-order="with"></router-view>
+    <modal-view></modal-view>
 </template>

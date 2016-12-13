@@ -21,6 +21,7 @@
 
 import {inject, noView, } from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {AUI} from './index';
 
 let routerIsCanceled = false;
 let containerHTMLElement; 
@@ -28,6 +29,7 @@ let modalParams = {};
 let routerInstance;
 let registeredCaptureCancel=[]
 let modalIndex=-1;
+let mouseUpTarget;
 
 if (!location.hash){
     location.hash = '#/';
@@ -57,8 +59,14 @@ export class ModalService {
     }
 
     static captureCancel(fn, context?){
-        fn.context = context;
-        registeredCaptureCancel.push(fn);        
+        ModalService.addCaptureCancel(fn, context)        
+    }
+    static addCaptureCancel(fn, context?){
+        if (!fn.registeredCapture){
+            fn.context = context;
+            fn.registeredCapture = true;
+            registeredCaptureCancel.push(fn);
+        }
     }
     static removeCaptureCancel(fn){
         let i;
@@ -66,6 +74,7 @@ export class ModalService {
         for (i=0; i<registeredCaptureCancel.length; i++){
             if (registeredCaptureCancel[i]===fn){
                 fn.context = null;
+                fn.registeredCapture = null;
                 return registeredCaptureCancel.splice(i,1);
             }
         }        
@@ -114,6 +123,7 @@ window.addEventListener('popstate', (event) => {
     let isModalOpennig = location.hash.substring(0,8) === '#/modal/';
     
     if (!location.hash){
+        processRegisteredCancel('back');
         return location.hash = '#/';
     }
 
@@ -126,11 +136,20 @@ window.addEventListener('popstate', (event) => {
 
     routerIsCanceled = false;
 });
+/*window.addEventListener('resize', ()=>{
+    processRegisteredCancel('resize');
+});*/
 document.addEventListener('keydown', (event)=>{
     if (event.keyCode==27){
         processRegisteredCancel('key');
     }
-})
+});
+document.addEventListener('mousedown', (event)=>{
+    mouseUpTarget = null;
+});
+document.addEventListener('mouseup', (event)=>{
+    mouseUpTarget = AUI.getUIRoot(<HTMLElement>event.target);
+});
 
 function processRegisteredCancel(origin){
     let i, e, cancel=false, a=registeredCaptureCancel;
@@ -139,18 +158,21 @@ function processRegisteredCancel(origin){
 
     a.forEach((fn)=>{
         e = {
-            "origin": origin,
-            "cancel": false
+            "origin" : origin,
+            "cancel" : false,
+            "target" : mouseUpTarget
         };
 
         fn.apply(fn.context, [e]);
         fn.context = null;
+        fn.registeredCapture = null;
 
         if (e.cancel){
             cancel = true;
         }
     });
 
+    mouseUpTarget = null;
 
     return cancel;
 }

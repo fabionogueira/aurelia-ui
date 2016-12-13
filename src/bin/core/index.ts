@@ -176,7 +176,7 @@ export class DOMSelector {
         return false;
     }
     private static checkByClass = (element, v1)=>{
-        return element.className.indexOf(v1)>-1;
+        return element.className && element.className.indexOf ? element.className.indexOf(v1)>-1 : false;
     }
     private static checkByElementName = (element, v1)=>{
         return element.localName === v1;

@@ -1,13 +1,13 @@
 @import 'variables';
 
 ui-drawer{
-    z-index:@z-index-ui-drawer;
     position:fixed;
     top:0;
     bottom:0;
     left:0;
     width:1px;
     display:block;
+    z-index:@z-index-ui-drawer;
 }
 ui-drawer .ui-drawer-obfuscator{
     position:fixed;
@@ -30,6 +30,9 @@ ui-drawer .ui-drawer-content{
     overflow:auto;
     box-shadow:rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px;
 }
+.ui-drawer-button{
+    display:none;
+}
 
 /* customizáveis */
 .ui-drawer-content{
@@ -41,45 +44,41 @@ ui-drawer .ui-drawer-content{
 }
 
 /* animação */
-.ui-drawer-cancel-animate .ui-drawer-content{
+.ng-ui-drawer-cancel-animate .ng-ui-drawer-content{
     transition:none!important;
 }
-.ui-drawer-hide{
+.ng-ui-drawer-hide{
     display:none;
 }
-.ui-drawer-hide-add{
+.ng-ui-drawer-hide-add{
     display:block!important;
 }
-.ui-drawer-hide--none {
+.ng-ui-drawer-hide--none {
     overflow: hidden;
 }
-.ui-drawer-hide--none .ui-drawer-content{
+.ng-ui-drawer-hide--none .ng-ui-drawer-content{
     display:none;
 }
-.ui-drawer-hide-remove {
+.ng-ui-drawer-hide-remove {
     display:block!important;
 }
 
 /* animação do fundo */
-.ui-drawer-hide .ui-drawer-obfuscator{
+.ng-ui-drawer-hide .ng-ui-drawer-obfuscator{
     opacity: 1;
     transition: opacity 00ms;
 }
-.ui-drawer-hide .ui-drawer-obfuscator{
+.ng-ui-drawer-hide .ng-ui-drawer-obfuscator{
     opacity:0;
 }
 
 /* animação do painel */
-.ui-drawer{
+ui-drawer{
     transition:transform 300ms;
 }
 .ui-drawer-content{
     transition:transform 300ms;
     transform:translate3d(0, 0, 0);
-}
-.ui-drawer-hide .ui-drawer-content{
-    transition:transform 300ms;
-    transform:translate3d(-110%, 0, 0);
 }
 
 /* animação do drawer alinhado à direita*/
@@ -87,27 +86,24 @@ ui-drawer .ui-drawer-content{
     transform:translate3d(100%, 0, 0);
 }
 
-/* comportamento com tela de 720px ou menos */
-@media screen and (max-width: 720px) {
+/* comportamento com tela de 780px ou menos */
+@media screen and (max-width: 780px) {
     /*fecha o painel caso não esteja aberto via javascript */
-    .ui-drawer:not([state="open"]) .ui-drawer-content{
+    ui-drawer:not([state="open"]) .ui-drawer-content{
         transform:translate3d(-110%, 0, 0);
     }
-    .ui-drawer[right]:not([state="open"]) .ui-drawer-content{
+    ui-drawer[right]:not([state="open"]) .ui-drawer-content{
         transform:translate3d(100%, 0, 0);
     }
     
     /*oculta o fundo caso não esteja aberto via javascript */
-    .ui-drawer:not([state="open"]) .ui-drawer-obfuscator{
+    ui-drawer:not([state="open"]) .ui-drawer-obfuscator{
         display:none;
     }
     
-    .ui-drawer[docked][state="open"] .ui-drawer-obfuscator{
+    ui-drawer[docked][state="open"] .ui-drawer-obfuscator{
         display:block;
         width:100%;
     }
     
-    .ui-drawer-hide--none{
-        display:block;
-    }
 }
