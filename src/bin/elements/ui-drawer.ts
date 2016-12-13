@@ -31,15 +31,18 @@ export class UIDrawer{
     attached(){
         this.element.children[1].setAttribute('style', this.element.getAttribute('style'));
         this.element.removeAttribute('style');
+        this.updateDocumentBody();
     }
 
     show(){
-        this.element.setAttribute('state', 'open');            
+        this.element.setAttribute('state', 'open');           
+        this.updateDocumentBody();
         ModalService.addCaptureCancel(this.cancelHandle, this);
     }
 
     hide(){
         this.element.removeAttribute('state');
+        this.updateDocumentBody(true);
         ModalService.removeCaptureCancel(this.cancelHandle);
     }
 
@@ -52,13 +55,27 @@ export class UIDrawer{
     private cancelHandle(event){
         if (this.obfuscatorIsVisible()){
             console.log(event.target)
-            //if (!event.target) event.cancel = true;
+            if (!event.target) event.cancel = true;
             this.hide();
         }
     }
 
     private obfuscatorIsVisible(){
-        return this.element.children[0]['offsetWidth']>0;
+        return (<HTMLElement>this.element.children[0]).offsetWidth>0;
+    }
+
+    private contentIsVisible(){
+        let r = (<HTMLElement>this.element.children[1]).getBoundingClientRect();
+        console.log(r.left);
+        return r.left>=0 || r.right>=0;
+    }
+
+    private updateDocumentBody(forceHide=false){
+        if (forceHide || !this.contentIsVisible()){
+            document.body.classList.remove('drawer-open');
+        }else{
+            document.body.classList.add('drawer-open');
+        }
     }
 }
 

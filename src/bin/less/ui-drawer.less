@@ -86,6 +86,8 @@ ui-drawer{
     transform:translate3d(100%, 0, 0);
 }
 
+[action-drawer]{display:none}
+
 /* comportamento com tela de 780px ou menos */
 @media screen and (max-width: 780px) {
     /*fecha o painel caso não esteja aberto via javascript */
@@ -106,4 +108,5 @@ ui-drawer{
         width:100%;
     }
     
+    [action-drawer]{display:initial}
 }

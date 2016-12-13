@@ -1,15 +1,15 @@
 <template>
     <page class="au-animate buttons">
         <page-header>
-            <button action-back>
-                <i class="icon icon-back"></i>
+            <button action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
             </button>
-            ui-button
+            <page-header-title>Buttons</page-header-title>
         </page-header>
         <page-content>
             <div class="content-block-title">Flat Buttons</div>
             <hbox style="justify-content:space-around;">
-                <ui-button tap.delegate="onTap($event)">BUTTON</ui-button>
+                <ui-button tap.delegate="onTap($event)">CHECKBOX</ui-button>
                 <ui-button>BUTTON</ui-button>
                 <ui-button>BUTTON</ui-button>
             </hbox>

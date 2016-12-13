@@ -46,7 +46,7 @@ export class ModalService {
         modalParams[routerName] = param;
     }
 
-    static show(routerName, param){
+    static show(routerName:string, param?:any){
         let r = getRouterByName(routerName);
 
         if (r){
@@ -149,6 +149,7 @@ document.addEventListener('mousedown', (event)=>{
 });
 document.addEventListener('mouseup', (event)=>{
     mouseUpTarget = AUI.getUIRoot(<HTMLElement>event.target);
+    setTimeout(function(){mouseUpTarget = null;},100);
 });
 
 function processRegisteredCancel(origin){

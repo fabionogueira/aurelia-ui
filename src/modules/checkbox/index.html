@@ -5,13 +5,25 @@
             .ckecboxes-list .item-content{
                 margin-left: 16px;
             }
+            .bt-back{
+                display: none;
+            }
+            .buttons-checkbox .bt-back{
+                display: initial;
+            }
+            .buttons-checkbox .bt-menu{
+                display: none;
+            }
         </style>
 
         <page-header>
-            <button action-back>
-                <i class="icon icon-back"></i>
+            <button class="bt-menu" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
             </button>
-            Checkboxes And Radios
+            <button class="bt-back" action-back>
+                <icon src="icon-arrow-back"></icon>
+            </button>
+            <page-header-title>Checkboxes And Radios</page-header-title>
         </page-header>
         <page-content class="list ckecboxes-list">
             <div class="content-block-title">Checkbox group</div>
