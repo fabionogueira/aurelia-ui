@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="aureliaui.com.br" versionCode="1.0.0" version= "1.0.0" xmlns = "http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android">
+	<name>Aurelia UI</name>
+	
+	<description>Aurelia UI Framework Test</description>
+	
+	<author href="" email="fabio.bacabal@gmail.com">Fábio Nogueira</author>
+
+	<platform name="ios"></platform>
+
+	<platform name="android">
+		<icon src="./images/res/icons/android/icon-36-ldpi.png" qualifier="ldpi" />
+		<icon src="./images/res/icons/android/icon-48-mdpi.png" qualifier="mdpi" />
+		<icon src="./images/res/icons/android/icon-72-hdpi.png" qualifier="hdpi" />
+		<icon src="./images/res/icons/android/icon-96-xhdpi.png" qualifier="xhdpi" />
+		<icon src="./images/res/icons/android/icon-144-xxhdpi.png" qualifier="xxhdpi" />
+		<icon src="./images/res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
+		<splash src="./images/res/screens/android/screen-mdpi-portrait.png" qualifier="" />
+		<splash src="./images/res/screens/android/screen-hdpi-portrait.png" qualifier="" />
+	</platform>
+
+	<platform name="winphone"></platform>
+	<icon src="icon.png" />
+</widget>
