@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget id="aureliaui.com.br" versionCode="1.0.0" version= "1.0.0" xmlns = "http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android = "http://schemas.android.com/apk/res/android">
+<widget id="aureliaui.com.br" versionCode="1.0.0" version= "1.0.0" 
+		xmlns = "http://www.w3.org/ns/widgets" 
+		xmlns:gap="http://phonegap.com/ns/1.0" 
+		xmlns:android = "http://schemas.android.com/apk/res/android">
+		
 	<name>Aurelia UI</name>
 	
 	<description>Aurelia UI Framework Test</description>
@@ -9,20 +13,33 @@
 	<platform name="ios"></platform>
 
 	<platform name="android">
-		<icon src="./images/res/icons/android/icon-36-ldpi.png" qualifier="ldpi" />
-		<icon src="./images/res/icons/android/icon-48-mdpi.png" qualifier="mdpi" />
-		<icon src="./images/res/icons/android/icon-72-hdpi.png" qualifier="hdpi" />
-		<icon src="./images/res/icons/android/icon-96-xhdpi.png" qualifier="xhdpi" />
-		<icon src="./images/res/icons/android/icon-144-xxhdpi.png" qualifier="xxhdpi" />
-		<icon src="./images/res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
-		<splash src="./images/res/screens/android/screen-mdpi-portrait.png" qualifier="" />
-		<splash src="./images/res/screens/android/screen-hdpi-portrait.png" qualifier="" />
+		<icon src="res/icons/android/icon-36-ldpi.png" qualifier="ldpi" />
+		<icon src="res/icons/android/icon-48-mdpi.png" qualifier="mdpi" />
+		<icon src="res/icons/android/icon-72-hdpi.png" qualifier="hdpi" />
+		<icon src="res/icons/android/icon-96-xhdpi.png" qualifier="xhdpi" />
+		<icon src="res/icons/android/icon-144-xxhdpi.png" qualifier="xxhdpi" />
+		<icon src="res/icons/android/icon-192-xxxhdpi.png" qualifier="xxxhdpi" />
+
+		<splash src="res/screen/android/screen-ldpi-portrait" />
+
+		<splash src="res/screen/android/screen-hdpi-portrait" density="port-hdpi"/>
+		<splash src="res/screen/android/screen-ldpi-portrait" density="port-ldpi"/>
+		<splash src="res/screen/android/screen-mdpi-portrait" density="port-mdpi"/>
+		<splash src="res/screen/android/screen-xhdpi-portrait" density="port-xhdpi"/>
+
+		<splash src="res/screen/android/screen-hdpi-portrait" density="land-hdpi"/>
+		<splash src="res/screen/android/screen-ldpi-portrait" density="land-ldpi"/>
+		<splash src="res/screen/android/screen-mdpi-portrait" density="land-mdpi"/>
+		<splash src="res/screen/android/screen-xhdpi-portrait" density="land-xhdpi"/>
 	</platform>
 
-	<preference name="phonegap-version" />
+	<preference name="splashscreen" value="splash" />
+	<preference name="splashScreenDelay" value="2000" />
+	<preference name="HeaderColor" value="#4285f4" />
 
 	<gap:plugin name="cordova-plugin-crosswalk-webview-pgb-adapt" source="npm"/>
-
+	<gap:plugin name="cordova-plugin-headercolor" source="npm"/>
+	
 	<platform name="winphone"></platform>
 	<icon src="icon.png" />
 </widget>
