@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="theme-color" content="#2196f3">
-   
+    
     <title>Aurelia</title>
   </head>
 
@@ -51,7 +51,14 @@
     <!-- application container -->
     <div aurelia-app="main"></div>
 
-    <script src="scripts/hammer.min.js"></script>
-    <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script type="text/javascript" src="scripts/hammer.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("deviceready", function{
+            navigator.splashscreen.hide();
+        }, false);
+    </script>
   </body>
 </html>

@@ -8,7 +8,7 @@
 	<description>Aurelia UI Framework Test</description>
 	<author href="" email="fabio.bacabal@gmail.com">Fábio Nogueira</author>
 
-	<content src="www/index.html" />
+	<content src="index.html" />
 
 	<!-- 
 	project
@@ -46,10 +46,26 @@
 	<splash platform="android" qualifier="port-xxhdpi"	src="resources/android/splash-port-xhdpi.png"/>
 	<splash platform="android" qualifier="port-xxxhdpi"	src="resources/android/splash-port-xdpi.png"/>
 
+	<gap:config-file platform="android" parent="/manifest">
+    	<application android:theme="@android:style/Theme.NoTitleBar"></application>
+	</gap:config-file>
+
 	<!-- cor da barra de título da janela minimizada (cordova-plugin-headercolor) somente android -->
 	<preference name="HeaderColor" value="#4285f4" />
 	<preference name="SplashScreen" value="screen"/>
 	<preference name="SplashScreenDelay" value="8000" />
+	<preference name="DisallowOverscroll" value="true" />
+
+	<access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
 
 	<plugin name="cordova-plugin-crosswalk-webview-pgb-adapt" source="npm"/>
 	<plugin name="cordova-plugin-headercolor" source="npm"/>
