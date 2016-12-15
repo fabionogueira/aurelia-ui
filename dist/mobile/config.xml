@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="aureliaui.com.br" versionCode="1.0.0" version= "1.0.0" 
+		xmlns = "http://www.w3.org/ns/widgets" 
+		xmlns:gap="http://phonegap.com/ns/1.0" 
+		xmlns:android = "http://schemas.android.com/apk/res/android">
+		
+	<name>Aurelia UI</name>
+	<description>Aurelia UI Framework Test</description>
+	<author href="" email="fabio.bacabal@gmail.com">Fábio Nogueira</author>
+
+	<content src="www/index.html" />
+
+	<!-- 
+	project
+		config.xml
+		resources
+			default-icon.png
+			default-splash.png
+			ios
+			android
+				icon-...
+				splash-...
+		www
+			index.html
+				
+	-->
+	<icon src="resources/default-icon.png"/>
+	<icon platform="android" qualifier="ldpi"		src="resources/android/icon-36-ldpi.png"/>
+	<icon platform="android" qualifier="mdpi"		src="resources/android/icon-48-mdpi.png"/>
+	<icon platform="android" qualifier="hdpi"		src="resources/android/icon-72-hdpi.png"/>
+	<icon platform="android" qualifier="xhdpi"		src="resources/android/icon-96-xhdpi.png"/>
+	<icon platform="android" qualifier="xxhdpi"		src="resources/android/icon-144-xxhdpi.png"/>
+	<icon platform="android" qualifier="xxxhdpi"	src="resources/android/icon-192-xxxhdpi.png"/>
+
+	<splash src="resources/default-splash.png" />
+	<splash platform="android" qualifier="land-ldpi"	src="resources/android/splash-land-ldpi.png"/>
+	<splash platform="android" qualifier="land-mdpi"  	src="resources/android/splash-land-mdpi.png"/>
+	<splash platform="android" qualifier="land-hdpi"  	src="resources/android/splash-land-hdpi.png"/>
+	<splash platform="android" qualifier="land-xhdpi"  	src="resources/android/splash-land-xhdpi.png"/>
+	<splash platform="android" qualifier="land-xxhdpi"  src="resources/android/splash-land-xxhdpi.png"/>
+	<splash platform="android" qualifier="land-xxxhdpi"	src="resources/android/splash-land-xxxhdpi.png"/>
+	<splash platform="android" qualifier="port-ldpi"	src="resources/android/splash-port-ldpi.png"/>
+	<splash platform="android" qualifier="port-mdpi"	src="resources/android/splash-port-mdpi.png"/>
+	<splash platform="android" qualifier="port-hdpi"	src="resources/android/splash-port-hdpi.png"/>
+	<splash platform="android" qualifier="port-xhdpi"	src="resources/android/splash-port-xhdpi.png"/>
+	<splash platform="android" qualifier="port-xxhdpi"	src="resources/android/splash-port-xhdpi.png"/>
+	<splash platform="android" qualifier="port-xxxhdpi"	src="resources/android/splash-port-xdpi.png"/>
+
+	<!-- cor da barra de título da janela minimizada (cordova-plugin-headercolor) somente android -->
+	<preference name="HeaderColor" value="#4285f4" />
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="SplashScreenDelay" value="8000" />
+
+	<plugin name="cordova-plugin-crosswalk-webview-pgb-adapt" source="npm"/>
+	<plugin name="cordova-plugin-headercolor" source="npm"/>
+	<plugin name="cordova-plugin-splashscreen" source="npm" />
+</widget>

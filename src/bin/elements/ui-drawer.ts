@@ -9,7 +9,7 @@ let DRAWERS = {};
 @inlineView(`
 <template>
     <div class="ui-drawer-obfuscator" tap.delegate="onObfuscatorClick()"></div>
-    <div class="ui-drawer-content">
+    <div class="ui-drawer-content" mousedown.delegate="onContentClick()">
         <slot></slot>
     </div>
 </template>`)
@@ -17,11 +17,11 @@ let DRAWERS = {};
 @inject(Element)
 export class UIDrawer{
     name: string;
-    element: Element;
+    transitionDuration:number;
 
-    constructor(element){
+    constructor(private element:HTMLElement){
         let name = element.getAttribute('name');
-
+        
         DRAWERS[name] = element;
 
         this.element = element;
@@ -29,6 +29,7 @@ export class UIDrawer{
     }
 
     attached(){
+        this.transitionDuration = AUI.getTransitionDuration(this.element);
         this.element.children[1].setAttribute('style', this.element.getAttribute('style'));
         this.element.removeAttribute('style');
         this.updateDocumentBody();
@@ -40,22 +41,45 @@ export class UIDrawer{
         ModalService.addCaptureCancel(this.cancelHandle, this);
     }
 
-    hide(){
+    hide(fn?){        
         this.element.removeAttribute('state');
         this.updateDocumentBody(true);
         ModalService.removeCaptureCancel(this.cancelHandle);
-    }
 
-    onObfuscatorClick(){
-        if (this.element.getAttribute('state')){
-            this.hide();
+        if (fn){
+            setTimeout(()=>{fn();}, this.transitionDuration);
         }
     }
 
+    onContentClick(){
+        setTimeout(()=>{
+            //console.log('complete');
+        },this.transitionDuration);
+    }
+
+    onObfuscatorClick(){
+        this.hide();
+    }
+
     private cancelHandle(event){
+        let hash;
+
         if (this.obfuscatorIsVisible()){
-            if (!event.target) event.cancel = true;
-            this.hide();
+
+            event.cancel = true;
+
+            //tem event.target quando a mudança de rota é resultado de click em link (href) 
+            if (event.target){
+                //aguarda o ui-drawer fechar para mudar de rota
+                hash = location.hash;
+                this.hide(()=>{
+                    location.hash = hash; 
+                });
+            }else{
+                //um cancelamento normal (esc, backspace, back button)
+                this.hide();
+            }
+
         }
     }
 

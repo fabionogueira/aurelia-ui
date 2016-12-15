@@ -81,6 +81,10 @@ export class AUI{
 
         return null;
     }
+    static getTransitionDuration(element:HTMLElement){
+        let d = getComputedStyle(element.children[1]).transitionDuration;
+        return d.indexOf('ms')>0 ? Number(d.replace('ms', '')) : Number(d.replace('s', '')) * 1000;
+    }
 } 
 
 export class DOMSelector {
