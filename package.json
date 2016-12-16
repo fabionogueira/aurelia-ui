@@ -59,6 +59,6 @@
     "copy_vendor_bundle": "cp ./scripts/vendor-bundle.js $npm_package_config_PATH_MOBILE/scripts && cp ./scripts/vendor-bundle.js $npm_package_config_PATH_WEB/scripts",
     "copy_hammer"       : "cp ./scripts/hammer.min.js $npm_package_config_PATH_MOBILE/scripts && cp ./scripts/hammer.min.js $npm_package_config_PATH_WEB/scripts",
     "copy_to_server"    : "cp -R $npm_package_config_PATH_WEB/* $npm_package_config_PATH_WEBSERVER",
-    "build"             : "npm run prepare_paths && npm run copy_index && npm run replace_index && npm run copy_vendor_bundle && npm run copy_hammer && npm run copy_to_server"
+    "build"             : "npm run au_build && npm run prepare_paths && npm run copy_index && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server"
   }
 }
