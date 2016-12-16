@@ -1,14 +1,6 @@
 <template>
-    <style>
-        @media screen and (min-width: 780px) {
-            .page-container {
-                left: 280px;
-            }
-            [action-drawer]{
-                display: none!important;
-            }
-        }
-    </style>
+    <require from="app.css"></require>
+
     <ui-drawer name="drawer1" docked style="width:280px">
         <page-header>
             <page-header-title>Aurelia UI</page-header-title>
@@ -18,7 +10,7 @@
             <list-block class="home-list">
                 <a class="list-item item-link" href="#/home">
                     <div class="item-media">
-                        <icon src="icon-checkbox"></icon>
+                        <icon src="icon-home"></icon>
                     </div>
                     <div class="item-content">Home</div>
                 </a>
@@ -40,12 +32,13 @@
                     <icon class="item-left" src="icon-checkbox"></icon>
                     <div class="item-content">Modals</div>
                 </a>
+                <div class="list-item git-link" tap.delegate="onGitHubTap()">
+                    <icon class="item-left" src="icon-git"></icon>
+                    <div class="item-content">Fork me in github</div>
+                </div>
             </list-block>
         </page-content>
     </ui-drawer>
     <router-view class="page-container" swap-order="with"></router-view>
     <modal-view></modal-view>
-    <a target="_blank" title="Fork me in github" href="https://github.com/fabionogueira/aurelia-ui" style="position:fixed;z-index:999999;right:10px;top:10px">
-        <icon size="32" color="#000" src="icon-git"></icon>
-    </a>
 </template>

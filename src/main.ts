@@ -12,7 +12,9 @@ import environment from './environment';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('bin');
+    .feature('bin', (options)=>{
+      options.theme = 'android';
+    });
 
   aurelia.use.plugin('aurelia-animator-css');
 

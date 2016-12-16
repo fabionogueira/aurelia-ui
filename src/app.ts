@@ -7,8 +7,9 @@ export class App {
 
   constructor(private modalService:ModalService) {}
 
-  onTap(event){
-    //console.log(event)
+  onGitHubTap(){
+    //require plugin org.apache.cordova.inappbrowser
+    window.open("https://github.com/fabionogueira/aurelia-ui", "_system");
   }
 
   configureRouter(config, router) {

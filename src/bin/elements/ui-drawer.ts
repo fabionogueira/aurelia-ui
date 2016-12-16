@@ -9,7 +9,7 @@ let DRAWERS = {};
 @inlineView(`
 <template>
     <div class="ui-drawer-obfuscator" tap.delegate="onObfuscatorClick()"></div>
-    <div class="ui-drawer-content" mousedown.delegate="onContentClick()">
+    <div class="ui-drawer-content">
         <slot></slot>
     </div>
 </template>`)
@@ -51,12 +51,6 @@ export class UIDrawer{
         }
     }
 
-    onContentClick(){
-        setTimeout(()=>{
-            //console.log('complete');
-        },this.transitionDuration);
-    }
-
     onObfuscatorClick(){
         this.hide();
     }
@@ -67,7 +61,7 @@ export class UIDrawer{
         if (this.obfuscatorIsVisible()){
 
             event.cancel = true;
-
+            
             //tem event.target quando a mudança de rota é resultado de click em link (href) 
             if (event.target){
                 //aguarda o ui-drawer fechar para mudar de rota

@@ -1,6 +1,12 @@
 import {FrameworkConfiguration} from 'aurelia-framework';
 
-export function configure(config: FrameworkConfiguration) {
+export function configure(config: FrameworkConfiguration, configure:Function) {
+  let options = {
+    theme: "android"
+  }
+
+  configure(options);
+
   config.globalResources([
     './elements/icon',
 
@@ -19,7 +25,7 @@ export function configure(config: FrameworkConfiguration) {
     './attributes/action-target',
     './attributes/action-highlight',
 
-    './index.css'
+    `./less/themes/${options.theme}/index.css`
   ]);
   
 }
