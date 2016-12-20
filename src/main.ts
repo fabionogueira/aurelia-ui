@@ -10,10 +10,13 @@ import environment from './environment';
 });
 
 export function configure(aurelia: Aurelia) {
+  let theme = 'android';
+
   aurelia.use
     .standardConfiguration()
-    .feature('bin', (options)=>{
-      options.theme = 'android';
+    .feature('aurelia-ui', (options)=>{
+      options.theme  = theme;
+      options.styles = `app-styles/${theme}.css`;
     });
 
   aurelia.use.plugin('aurelia-animator-css');

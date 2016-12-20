@@ -1,0 +1,20 @@
+Implementar pré-compilador que deve analisar os códigos html e css, substituindo trechos
+de acordo com regras pré-definidas.
+ex: adicionar/excluir trechos de acordo com o tema
+    app.html
+    --------
+    <!--@IF theme='android' -->
+    <require from="app-styles/android.css"></require>
+    <!--@ENDIF -->
+
+    app.js
+    ------
+    /**@IF @theme='android'
+    let theme='android'
+    @ENDIF */
+    /**@
+    let theme='@theme';
+    @ENDIF */
+
+
+

@@ -1,0 +1,44 @@
+@import 'variables';
+
+page-header{
+    z-index:@z-index-ui-layout-page-header;
+    position:absolute; 
+    display:flex; 
+    justify-content:flex-start; 
+    align-items:center; 
+    flex-direction:row; 
+    background:#2196f3; 
+    color:#fff; left:0; top:0; 
+    height:56px; 
+    font-size:20px; 
+    width:100%; 
+}
+page-header *{
+    color:#fff!important;
+}
+page-header [action-back], page-header [action-drawer]{
+    padding:0 16px;
+    left:0px;
+    top:0;
+    height:100%;
+}
+page-header svg{
+    fill:#fff;
+}
+page-header-title{
+    padding:0 20px;
+}
+
+/* input, ui-textfield */
+page-header ::-webkit-input-placeholder{
+    color: #A6D5FA
+}
+page-header input {
+    border-bottom: solid 1px #A6D5FA!important;
+}
+page-header ui-textfield[ui-element="active"] ::-webkit-input-placeholder{
+    color: #fff;
+}
+page-header ui-textfield[ui-element="active"] input{
+    border-bottom: solid 1px #fff!important;
+}

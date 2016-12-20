@@ -1,5 +1,5 @@
 {
-  "name": "aui",
+  "name": "aurelia-ui-app",
   "description": "An Aurelia client application.",
   "version": "0.1.0",
   "repository": {
@@ -47,18 +47,19 @@
     "PATH_MOBILE"    : "./dist/mobile/www",
     "PATH_WEB"       : "./dist/web",
     "PATH_WEBSERVER" : "/var/www/html/aui-dist",
-    "CORDOVA"        : ""
+    "CORDOVA_JS"     : "<!--cordova.js-->/<script type=\"text\\/javascript\" src=\"cordova.js\"><\\/script>"
   },
   "scripts": { 
     "local_server"      : "au run --watch",
     "au_build"          : "au build --env prod",
     "prepare_paths"     : "mkdir -p $npm_package_config_PATH_MOBILE/scripts && mkdir -p $npm_package_config_PATH_WEB/scripts",
     "copy_index"        : "cp ./index.html $npm_package_config_PATH_MOBILE  && cp ./index.html $npm_package_config_PATH_WEB",
-    "replace_index"     : "sed -i 's/<!--cordova.js-->/<script type=\"text\\/javascript\" src=\"cordova.js\"><\\/script>/' $npm_package_config_PATH_MOBILE/index.html",
+    "copy_favicon"      : "cp ./favicon.icon $npm_package_config_PATH_WEB",
+    "replace_index"     : "sed -i 's/$npm_package_config_CORDOVA_JS/' $npm_package_config_PATH_MOBILE/index.html",
     "copy_app_bundle"   : "cp ./scripts/app-bundle.js $npm_package_config_PATH_MOBILE/scripts && cp ./scripts/app-bundle.js $npm_package_config_PATH_WEB/scripts",
     "copy_vendor_bundle": "cp ./scripts/vendor-bundle.js $npm_package_config_PATH_MOBILE/scripts && cp ./scripts/vendor-bundle.js $npm_package_config_PATH_WEB/scripts",
     "copy_hammer"       : "cp ./scripts/hammer.min.js $npm_package_config_PATH_MOBILE/scripts && cp ./scripts/hammer.min.js $npm_package_config_PATH_WEB/scripts",
     "copy_to_server"    : "cp -R $npm_package_config_PATH_WEB/* $npm_package_config_PATH_WEBSERVER",
-    "build"             : "npm run au_build && npm run prepare_paths && npm run copy_index && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server"
+    "build"             : "npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server"
   }
 }

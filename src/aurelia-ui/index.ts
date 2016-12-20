@@ -1,13 +1,17 @@
 import {FrameworkConfiguration} from 'aurelia-framework';
+import {AUI} from './core/index';
 
 export function configure(config: FrameworkConfiguration, configure:Function) {
-  let options = {
-    theme: "android"
-  }
+  let arr:string[], options = {
+    theme : "android",
+    styles: null
+  };
 
   configure(options);
 
-  config.globalResources([
+  AUI.THEME = options.theme;
+
+  arr = [
     './elements/icon',
 
     './elements/modal-view',
@@ -21,11 +25,16 @@ export function configure(config: FrameworkConfiguration, configure:Function) {
     './elements/ui-switch',
     './elements/ui-textfield',
 
-    './attributes/action-back',
-    './attributes/action-target',
-    './attributes/action-highlight',
+    './actions/action-back',
+    './actions/action-target',
+    './actions/action-highlight',
 
-    `./less/themes/${options.theme}/index.css`
-  ]);
-  
+    `./themes/${options.theme}/index.css`
+  ];
+
+  if (options.styles){
+    Array.isArray(options.styles) ? arr.concat(options.styles) : arr.push(options.styles);
+  }
+
+  config.globalResources(arr);
 }

@@ -65,7 +65,8 @@ export class Action{
 }
 
 export class AUI{
-    static oldURL:string
+    static oldURL: string
+    static THEME : string
 
     static setPressedState(selector:string){
         setPressedState_REGISTERED[selector] = selector;
