@@ -17,7 +17,8 @@ export function configure(aurelia: Aurelia) {
     .feature('aurelia-ui', (options)=>{
       options.theme  = theme;
       options.styles = `app-styles/${theme}.css`;
-    });
+    })
+    .feature('./attributes');
 
   aurelia.use.plugin('aurelia-animator-css');
 

@@ -4,40 +4,30 @@
             <page-header-title>Aurelia UI</page-header-title>
         </page-header>
         <page-content class="list">
-            <div class="content-block-title">Elements</div>
+            <a class="hbox" style="align-items:center;padding:12px 15px;margin-top:10px;" href="#/home">
+                <icon style="margin-right:12px" src="icon-home"></icon>
+                <span>Home</span>
+            </a>
+
+            <div class="content-block-title">CSS Elements</div>
             <list-block class="home-list">
-                <a class="list-item item-link" href="#/home">
-                    <div class="item-media">
-                        <icon src="icon-home"></icon>
-                    </div>
-                    <div class="item-content">Home</div>
+                <a repeat.for="item of roters_css" class="list-item item-link" href="#/${item}">
+                    <div class="item-content">${item}</div>
                 </a>
-                <a class="list-item item-link" href="#/buttons">
-                    <div class="item-media">
-                        <icon src="icon-checkbox"></icon>
-                    </div>
-                    <div class="item-content">Buttons</div>
+            </list-block>
+
+            <div class="content-block-title">Custom Elements</div>
+            <list-block class="home-list">                
+                <a repeat.for="item of roters_element" class="list-item item-link" href="#/${item}">
+                    <div class="item-content">${item}</div>
                 </a>
-                <a class="list-item item-link" href="#/form">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Form</div>
+            </list-block>
+
+            <div class="content-block-title">Demos</div>
+            <list-block class="home-list">                
+                <a repeat.for="item of roters_demo" class="list-item item-link" href="#/${item}">
+                    <div class="item-content">${item}</div>
                 </a>
-                <a class="list-item item-link" href="#/checkbox">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Checkboxes And Radios</div>
-                </a>
-                <a class="list-item item-link" href="#/modals">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Modals</div>
-                </a>
-                <a class="list-item item-link" href="#/modal/search">
-                    <icon class="item-left" src="icon-checkbox"></icon>
-                    <div class="item-content">Search</div>
-                </a>
-                <div class="list-item git-link" tap.delegate="onGitHubTap()">
-                    <icon class="item-left" src="icon-git"></icon>
-                    <div class="item-content">Fork me in github</div>
-                </div>
             </list-block>
         </page-content>
     </ui-drawer>

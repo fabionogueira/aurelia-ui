@@ -1,20 +1,22 @@
-@import 'variables';
+@import '_variables';
 
 page-header{
     z-index:@z-index-ui-layout-page-header;
+    background:@primaryColor; 
+    color:@lightPrimaryText;
     position:absolute; 
     display:flex; 
     justify-content:flex-start; 
     align-items:center; 
     flex-direction:row; 
-    background:#2196f3; 
-    color:#fff; left:0; top:0; 
+    left:0;
+    top:0; 
     height:56px; 
     font-size:20px; 
     width:100%; 
 }
 page-header *{
-    color:#fff!important;
+    color:@lightPrimaryText!important;
 }
 page-header [action-back], page-header [action-drawer]{
     padding:0 16px;
@@ -23,7 +25,7 @@ page-header [action-back], page-header [action-drawer]{
     height:100%;
 }
 page-header svg{
-    fill:#fff;
+    fill:@lightPrimaryText;
 }
 page-header-title{
     padding:0 20px;
@@ -31,14 +33,14 @@ page-header-title{
 
 /* input, ui-textfield */
 page-header ::-webkit-input-placeholder{
-    color: #A6D5FA
+    color: @primaryColor-200;
 }
 page-header input {
-    border-bottom: solid 1px #A6D5FA!important;
+    border-bottom: solid 1px @primaryColor-200!important;
 }
 page-header ui-textfield[ui-element="active"] ::-webkit-input-placeholder{
-    color: #fff;
+    color: @lightPrimaryText;
 }
 page-header ui-textfield[ui-element="active"] input{
-    border-bottom: solid 1px #fff!important;
+    border-bottom: solid 1px @lightPrimaryText!important;
 }

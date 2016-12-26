@@ -1,9 +1,9 @@
 
-@import '../aurelia-ui/themes/android/variables';
+@import '../aurelia-ui/themes/android/_variables';
 
 .git-link, .git-link icon{
-    color:#3F51B5;
-    fill:#3F51B5;
+    color:@accentColor-400;
+    fill:@accentColor-400;
 }
 .buttons-row{
     justify-content:space-between;
@@ -31,7 +31,35 @@
     display: none;
 }
 
-@media screen and (min-width: 780px) {
+.c50 {background:@primaryColor-50}
+.c100{background:@primaryColor-100}
+.c200{background:@primaryColor-200}
+.c300{background:@primaryColor-300}
+.c400{background:@primaryColor-400}
+.c500{background:@primaryColor-500}
+.c600{background:@primaryColor-600}
+.c700{background:@primaryColor-700}
+.c800{background:@primaryColor-800}
+.c900{background:@primaryColor-900}
+.a100{background:@accentColor-100}
+.a200{background:@accentColor-200}
+.a400{background:@accentColor-400}
+.a700{background:@accentColor-700}
+.lPrimary{color:@lightPrimaryText}
+.lSecondary{color:@lightSecondaryText}
+.lDisabled{color:@lightDisabledText}
+.lDividers{color:@lightDividers}
+.dPrimary{color:@darkPrimaryText}
+.dSecondary{color:@darkSecondaryText}
+.dDisabled{color:@darkDisabledText}
+.dDividers{color:@darkDividers}
+.statusBar{background:@statusBarColor}
+.appBar{background:@appBarColor}
+.background{background:@windowBackground}
+.dialog{background:@dialog}
+
+//desloca o conteúdo para exibição do drawer em telas maiores que 780
+@media screen and (min-width: 780px) and (orientation:landscape) {
     .page-container {
         left: 280px;
     }

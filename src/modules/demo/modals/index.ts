@@ -1,8 +1,10 @@
 import {inject} from 'aurelia-framework';
-import {UIAlert} from '../../aurelia-ui/core/ui-alert';
+import {UIAlert} from '../../../aurelia-ui/core/ui-alert';
 
 @inject(UIAlert)
 export class Modals{
+    router: any;
+
     constructor(private alert:UIAlert){}
 
     buttonAlertTap(){

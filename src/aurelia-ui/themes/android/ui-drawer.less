@@ -1,4 +1,4 @@
-@import 'variables';
+@import '_variables';
 
 ui-drawer{
     position:fixed;
@@ -57,7 +57,7 @@ ui-drawer .ui-drawer-content{
 [action-drawer]{display:none}
 
 /* comportamento com tela de 780px ou menos */
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 780px), screen and (orientation: portrait) {
     /*fecha o painel caso não esteja aberto via javascript */
     ui-drawer:not([state="open"]) .ui-drawer-content{
         transform:translate3d(-110%, 0, 0);

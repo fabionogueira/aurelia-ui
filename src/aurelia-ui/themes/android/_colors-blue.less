@@ -1,0 +1,53 @@
+
+@z-index-ui-checkbox-input:           1;
+@z-index-ui-radio-input:              1;
+@z-index-ui-slider-input:             1;
+@z-index-ui-switch-input:             1;
+@z-index-ui-animate-leave-active:     2;
+@z-index-ui-animate-enter-active:     4;
+@z-index-ui-layout-page-header:      10;
+@z-index-ui-button-floating:         20;
+@z-index-ui-drawer:                  30;
+@z-index-modal:                      40;
+@z-index-ui-layout-popup-modal-view: 50;
+@z-index-ui-layout-popup-overlay:    60;
+
+//Theme base colors
+@primaryColor    : #2196F3;
+@accentColor     : #FF5252;
+@lightPrimaryText: #fff;
+@darkPrimaryText : #000;
+
+//Primary Palette
+@primaryColor-50 : lighten(@primaryColor, 37%);
+@primaryColor-100: lighten(@primaryColor, 31%);
+@primaryColor-200: lighten(@primaryColor, 25%);
+@primaryColor-300: lighten(@primaryColor, 9%);
+@primaryColor-400: lighten(@primaryColor, 3%);
+@primaryColor-500: @primaryColor;
+@primaryColor-600: darken(@primaryColor, 11%);
+@primaryColor-700: darken(@primaryColor, 14%);
+@primaryColor-800: darken(@primaryColor, 17%);
+@primaryColor-900: darken(@primaryColor, 20%);
+
+//Accent Palette
+@accentColor-100: lighten(@accentColor, 31%);
+@accentColor-200: lighten(@accentColor, 25%);
+@accentColor-400: darken(@accentColor, 3%);
+@accentColor-700: darken(@accentColor, 14%);
+
+//Light Background/Text colors
+@lightSecondaryText  : fade(@lightPrimaryText, 70%);
+@lightDisabledText   : fade(@lightPrimaryText, 50%); //hint, icons
+@lightDividers       : fade(@lightPrimaryText, 12%);
+
+//Dark Background/Text colors
+@darkSecondaryText  : fade(@darkPrimaryText, 70%);
+@darkDisabledText   : fade(@darkPrimaryText, 50%); //hint, icons
+@darkDividers       : fade(@darkPrimaryText, 12%);
+
+//Outhes
+@statusBarColor:   @primaryColor;
+@appBarColor:      @primaryColor-600;
+@windowBackground: lighten(@darkPrimaryText, 31%);
+@dialog:           @lightPrimaryText;

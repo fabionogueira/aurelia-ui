@@ -50,17 +50,26 @@
       </symbol>
       <symbol id="icon-home">
           <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+      </symbol>
+      <symbol id="icon-skip-next">
+          <path d="M16,18H18V6H16M6,18L14.5,12L6,6V18Z" />
+      </symbol>
+      <symbol id="icon-code">
+          <path d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" />
       </symbol>      
     </defs>
     </svg>
     
+    <script type="text/javascript" src="scripts/highlight/highlight.pack.js"></script>
+    <link rel="stylesheet" href="scripts/highlight/styles/default.css">
+
     <!-- application container -->
     <div aurelia-app="main"></div>
 
     <!--cordova.js-->    
     <script type="text/javascript" src="scripts/hammer.min.js"></script>
     <script type="text/javascript" src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
-
+    
     <script type="text/javascript">
         document.addEventListener("deviceready", function(){
             navigator.splashscreen.hide();

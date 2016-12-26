@@ -29,7 +29,7 @@ export function configure(config: FrameworkConfiguration, configure:Function) {
     './actions/action-target',
     './actions/action-highlight',
 
-    `./themes/${options.theme}/index.css`
+    `./themes/${options.theme}/_index.css`
   ];
 
   if (options.styles){

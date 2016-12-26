@@ -1,8 +1,14 @@
-@import 'variables';
+@import '_variables';
+
+//define valores defaults
+.default(){
+    @ui-card-background: @dialog
+}
+.default();
 
 ui-card, .ui-card{
     display: block;
-    background: #fff;
+    background:@ui-card-background;
     margin: 8px;
     position: relative;
     border-radius: 2px;

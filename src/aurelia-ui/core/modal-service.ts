@@ -44,6 +44,7 @@ export class ModalService {
  
     static setRouterParam(routerName, param){
         modalParams[routerName] = param;
+        return ModalService;
     }
 
     static show(routerName:string, param?:any){

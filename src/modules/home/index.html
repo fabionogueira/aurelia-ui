@@ -6,23 +6,77 @@
             </ui-button>
             <page-header-title>HOME</page-header-title>
         </page-header>
-        <page-content class="content-block">
-            <div class="content-block-title">
-                Simple Card
-            </div>
-            <ui-card>
-                <div class="ui-card-header">
-                    User Agent
+        <page-content>
+            <style>
+                .tests div{text-align:center}
+            </style>
+            <div class="content-block">
+                <div class="content-block-title">
+                    Pallete Color
                 </div>
-                <div class="ui-card-content">
-                    ${userAgent}
-                </div>
-            </ui-card>
+                <ui-card class="tests">
+                    <div class="ui-card-content">
+                        <div class="dSecondary c50">50</div>
+                        <div class="dSecondary c100">100</div>
+                        <div class="dSecondary c200">200</div>
+                        <div class="dSecondary c300">300</div>
+                        <div class="dSecondary c400">400</div>
+                        <div class="c500">500</div>
+                        <div class="lSecondary c600">600</div>
+                        <div class="lSecondary c700">700</div>
+                        <div class="lSecondary c800">800</div>
+                        <div class="lSecondary c900">900</div>
+                        <div class="dSecondary a100">A100</div>
+                        <div class="dSecondary a200">A200</div>
+                        <div class="lSecondary a400">A400</div>
+                        <div class="lSecondary a700">A700</div>
+                    </div>
+                </ui-card>
 
-            <ui-button class="raised fill color-red" tap.delegate="onGitHubTap()" style="margin:8px;">
-                <icon src="icon-git"></icon>
-                <div style="margin-left:10px;">Fork me in github</div>
-            </ui-button>
+                <div class="content-block-title">
+                    Light Colors
+                </div>
+                <ui-card class="tests">
+                    <div class="lPrimary background">ligth primary text</div>
+                    <div class="lSecondary background">ligth secondary text</div>
+                    <div class="lDisabled background">ligth disabled text</div>
+                    <div class="lDividers background">ligth dividers color</div>
+                </ui-card>
+
+                <div class="content-block-title">
+                    Dark Colors
+                </div>
+                <ui-card class="tests">
+                    <div class="dPrimary">dark primary text</div>
+                    <div class="dSecondary">dark secondary text</div>
+                    <div class="dDisabled">dark disabled text</div>
+                    <div class="dDividers">dark dividers color</div>
+                </ui-card>
+
+                <div class="content-block-title">
+                    Outhers
+                </div>
+                <ui-card class="tests">
+                    <div class="lPrimary statusBar">status bar background</div>
+                    <div class="lPrimary appBar">app bar background</div>
+                    <div class="lPrimary background">window background</div>
+                    <div class="dPrimary dialog">dialog background</div>
+                </ui-card>
+                <p> </p><p> </p>
+                <ui-card>
+                    <div class="ui-card-header">
+                        User Agent
+                    </div>
+                    <div class="ui-card-content">
+                        ${userAgent}
+                    </div>
+                </ui-card>
+
+                <ui-button class="raised fill color-red" tap.delegate="onGitHubTap()" style="margin:8px;">
+                    <icon src="icon-git"></icon>
+                    <div style="margin-left:10px;">Fork me in github</div>
+                </ui-button>
+            </div>
         </page-content>
     </page>
 </template>
