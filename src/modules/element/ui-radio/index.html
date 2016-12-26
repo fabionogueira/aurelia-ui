@@ -4,65 +4,29 @@
             <button class="bt-menu" action-drawer="drawer1">
                 <icon src="icon-menu"></icon>
             </button>
-            <button class="bt-back" action-back>
-                <icon src="icon-arrow-back"></icon>
-            </button>
-            <page-header-title>Checkboxes And Radios</page-header-title>
+            <page-header-title style="flex:1">ui-radio</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/element/ui-radio/index', 'ui-radio-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
         </page-header>
-        <page-content class="list ckecboxes-list">
-            <div class="content-block-title">Checkbox group</div>
-            <list-block>
-                <div class="list-item" action-target="ui-checkbox">
-                    <ui-checkbox checked="true"></ui-checkbox>
-                    <div class="item-content">
-                        Books
-                    </div>
-                </div>
-                <div class="list-item" action-target="ui-checkbox">
-                    <ui-checkbox checked="false"></ui-checkbox>
-                    <div class="item-content">
-                        Movies
-                    </div>
-                </div>
-                <div class="list-item" action-target="ui-checkbox">
-                    <ui-checkbox></ui-checkbox>
-                    <div class="item-content">
-                        Food
-                    </div>
-                </div>
-                <div class="list-item" action-target="ui-checkbox">
-                    <ui-checkbox></ui-checkbox>
-                    <div class="item-content">
-                        Drinks
-                    </div>
-                </div>
-            </list-block>
-
+        <page-content id="ui-radio-id" class="list ckecboxes-list">
             <div class="content-block-title">Radio buttons group</div>
             <list-block>
                 <div class="list-item" action-target="ui-radio">
                     <ui-radio name="group1" checked="true"></ui-radio>
-                    <div class="item-content">
-                        Books
-                    </div>
+                    <div class="item-content">Books</div>
                 </div>
                 <div class="list-item" action-target="ui-radio">
                     <ui-radio name="group1"></ui-radio>
-                    <div class="item-content">
-                        Movies
-                    </div>
+                    <div class="item-content">Movies</div>
                 </div>
                 <div class="list-item" action-target="ui-radio">
                     <ui-radio name="group1"></ui-radio>
-                    <div class="item-content">
-                        Food
-                    </div>
+                    <div class="item-content">Food</div>
                 </div>
                 <div class="list-item" action-target="ui-radio">
                     <ui-radio name="group1"></ui-radio>
-                    <div class="item-content">
-                        Drinks
-                    </div>
+                    <div class="item-content">Drinks</div>
                 </div>
             </list-block>
 

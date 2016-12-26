@@ -43,8 +43,20 @@ export class App {
         e = container.firstChild.content.getElementById(nid);
 
         //aplica o highlight
-        html = e.innerHTML.replace(/\</g,'&lt;').replace(/\>/g,'&gt;').replace(/\t/g,'*');
-        container.innerHTML = `<pre><code class="html">${html}</code></pre>`;
+        html = e.innerHTML
+          .replace(/  /g,'*')
+          .replace(/\</g,'&lt;')
+          .replace(/\>/g,'&gt;');
+        
+        //remove os espaços extras
+        let a = html.match(/\**&lt;/);
+        if (a){
+          let s = a[0].replace('&lt;', '').replace(/\*/g, '\\*');
+          let r = new RegExp(s, 'g');
+          html = html.replace(r, '').replace(/\*/g, ' ');
+        }
+
+        container.innerHTML = `<pre><code class="html" style="-webkit-user-select:all;">${html}</code></pre>`;
         hljs.highlightBlock(container.firstChild);
         html = container.innerHTML;
       }catch(_e){
@@ -68,8 +80,8 @@ export class App {
   configureRouter(config, router) {
     let a: any[]= [{ route: ['', 'home'], name: 'home', moduleId: 'modules/home/index' }];
 
-    this.roters_css     = ['ui-card', 'breadcrumb'],
-    this.roters_element = ['ui-button','ui-checkbox','ui-drawer','ui-radio','ui-slider','ui-textfield'],
+    this.roters_css     = ['ui-card', 'ui-list', 'ui-breadcrumb'],
+    this.roters_element = ['ui-button','ui-checkbox','ui-radio', 'ui-drawer','ui-radio','ui-slider','ui-textfield'],
     this.roters_demo    = ['form','checkbox','modals','search'];
 
     this.router = router;
@@ -89,3 +101,4 @@ export class App {
     config.map(a);
   }
 }
+

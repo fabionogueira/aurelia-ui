@@ -4,10 +4,13 @@
             <ui-button class="button-page-header" action-drawer="drawer1">
                 <icon src="icon-menu"></icon>
             </ui-button>
-            <page-header-title>Breadcrumb</page-header-title>
+            <page-header-title style="flex:1">ui-breadcrumb</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/css/ui-breadcrumb/index', 'ui-breadcrumb-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
         </page-header>
-        <page-content class="content-block">
-            <ul class="breadcrumb">
+        <page-content id="ui-breadcrumb-id"  class="content-block">
+            <ui-breadcrumb>
                 <li>
                     <icon src="icon-home"></icon>
                 </li>
@@ -19,7 +22,7 @@
                     <icon src="icon-skip-next"></icon>
                     Breadcrumb
                 </li>
-            </ul>
+            </ui-breadcrumb>
         </page-content>
     </page>
 </template>

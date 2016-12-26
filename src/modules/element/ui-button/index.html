@@ -4,27 +4,33 @@
             <button action-drawer="drawer1">
                 <icon src="icon-menu"></icon>
             </button>
-            <page-header-title>Buttons</page-header-title>
+            <page-header-title style="flex:1">ui-button</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/element/ui-button/index', 'ui-button-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
         </page-header>
-        <page-content>
+        <page-content id="ui-button-id">
             <div class="content-block-title">Flat Buttons</div>
             <hbox style="justify-content:space-around;">
-                <ui-button tap.delegate="onTap($event)">CHECKBOX</ui-button>
+                <ui-button>BUTTON</ui-button>
                 <ui-button>BUTTON</ui-button>
                 <ui-button>BUTTON</ui-button>
             </hbox>
+
             <div class="content-block-title">Raised Buttons</div>
             <hbox style="justify-content:space-around;">
                 <ui-button class="raised">BUTTON</ui-button>
                 <ui-button class="raised">BUTTON</ui-button>
                 <ui-button class="raised">BUTTON</ui-button>
             </hbox>
+
             <div class="content-block-title">Raised Fill Buttons</div>
             <hbox style="justify-content:space-around;">
                 <ui-button class="raised fill">BUTTON</ui-button>
                 <ui-button class="raised fill">BUTTON</ui-button>
                 <ui-button class="raised fill">BUTTON</ui-button>
             </hbox>
+
             <div class="content-block-title">Colors Buttons</div>
             <hbox style="justify-content:space-around;">
                 <ui-button class="color-red">BUTTON</ui-button>
@@ -41,6 +47,7 @@
                 <ui-button class="color-teal">BUTTON</ui-button>
                 <ui-button class="color-indigo">BUTTON</ui-button>
             </hbox>
+
             <div class="content-block-title">Colors Fills Buttons</div>
             <hbox style="justify-content:space-around;margin-bottom:3px;">
                 <ui-button class="fill color-red">BUTTON</ui-button>
@@ -73,6 +80,7 @@
                 <ui-button class="raised fill color-teal">BUTTON</ui-button>
                 <ui-button class="raised fill color-indigo">BUTTON</ui-button>
             </hbox>
+            
             <div class="content-block-title">Floating Button</div>
             <hbox style="justify-content:space-around;">
                 <ui-button class="floating fill color-red"><i class="icon icon-plus"></i></ui-button>

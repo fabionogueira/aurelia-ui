@@ -1,0 +1,98 @@
+<template>
+    <page class="au-animate">
+        <page-header style="justify-content:flex-start;">
+            <ui-button class="button-page-header" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </ui-button>
+            <page-header-title style="flex:1">ui-list</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/css/ui-list/index', 'ui-list-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
+        </page-header>
+        <page-content>
+            <div id="ui-list-id" class="content-block">
+                <div class="content-block-title">Simple List</div>
+                <ui-list>
+                    <div class="list-item">
+                        Item 01
+                    </div>
+                    <div class="list-item">
+                        Item 02
+                    </div>
+                    <div class="list-item">
+                        Item 03
+                    </div>
+                </ui-list>
+
+                <div class="content-block-title">Link itens</div>
+                <ui-list>
+                    <div class="list-item item-link">
+                        Link Item 01
+                    </div>
+                    <div class="list-item item-link">
+                        Link Item 02
+                    </div>
+                    <div class="list-item item-link">
+                        Link Item 03
+                    </div>
+                </ui-list>
+
+                <div class="content-block-title">List with separator</div>
+                <ui-list>
+                    <div class="list-item item-link">
+                        <div class="item-content">
+                            <span style="flex:1;">Content Item 01</span>
+                            <div style="margin-right:56px;" class="item-text item-subtitle">Subtitle</div>
+                        </div>
+                    </div>
+                    <div class="list-item item-link">
+                        <div class="item-content">
+                            Content Item 02
+                        </div>
+                    </div>
+                    <div class="list-item item-link">
+                        <div class="item-content">
+                            Content Item 03
+                        </div>
+                    </div>
+                </ui-list>
+
+                <div class="content-block-title">List with icons</div>
+                <ui-list>
+                    <div class="list-item item-link">
+                        <icon class="item-media" src="icon-account"></icon>
+                        <div class="item-content">
+                            Content Item 01
+                        </div>
+                    </div>
+                    <div class="list-item item-link">
+                        <icon class="item-media" src="icon-calendar-today"></icon>
+                        <div class="item-content">
+                            Content Item 02
+                        </div>
+                    </div>
+                    <div class="list-item item-link">
+                        <icon class="item-media" src="icon-settings"></icon>
+                        <div class="item-content">
+                            Content Item 03
+                        </div>
+                    </div>
+                </ui-list>
+
+                <div class="content-block-title">Grouped List</div>
+                <ui-list>
+                    <div class="list-title">A</div>
+                    <div class="list-item"><div class="item-content">Aaron</div></div>
+                    <div class="list-item"><div class="item-content">Abbie</div></div>
+                    <div class="list-item"><div class="item-content">Adam</div></div>
+                </ui-list>
+                <ui-list>
+                    <div class="list-title">B</div>
+                    <div class="list-item"><div class="item-content">Bailey</div></div>
+                    <div class="list-item"><div class="item-content">Bailey</div></div>
+                    <div class="list-item"><div class="item-content">Bartolo</div></div>
+                </ui-list>
+            </div>
+        </page-content>
+    </page>
+</template>

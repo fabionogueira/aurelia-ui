@@ -1,25 +1,25 @@
 @import '_variables';
 
-ul.breadcrumb {
+ui-breadcrumb {
     list-style: none;
     display: inline-flex;
     flex-wrap: nowrap;
     margin: 11.333333333333334px 0 0;
     padding: 0;
 }
-ul.breadcrumb li {
+ui-breadcrumb li {
     float: left;
     margin-bottom: 11.333333333333334px;
 }
-ul.breadcrumb li:first-child {
+ui-breadcrumb li:first-child {
     padding-left: 15px;
     border-radius: 2px 0 0 2px;
 }
-ul.breadcrumb li:last-child {
+ui-breadcrumb li:last-child {
     padding-right: 15px;
     border-radius: 0 2px 2px 0;
 }
-ul.breadcrumb li {
+ui-breadcrumb li {
     color: @lightPrimaryText;
     fill: @lightPrimaryText;
     background: @primaryColor;
@@ -32,7 +32,7 @@ ul.breadcrumb li {
     text-align: center;
     margin-right: 23px;
 }
-ul.breadcrumb li:before, ul.breadcrumb li:after{
+ui-breadcrumb li:before, ui-breadcrumb li:after{
     content: "";
     position: absolute;
     top: 0;
@@ -40,18 +40,18 @@ ul.breadcrumb li:before, ul.breadcrumb li:after{
     border: 0 solid transparent;
     border-width: 17px 10px;
 }
-ul.breadcrumb li:after{
+ui-breadcrumb li:after{
     border-left: solid 17px @primaryColor;
     left: 100%;
 }
-ul.breadcrumb li:before{
+ui-breadcrumb li:before{
     border-color: @primaryColor;
     left: -17px;
     border-left: solid 17px transparent;
 }
-ul.breadcrumb li:first-child:before {
+ui-breadcrumb li:first-child:before {
     border: 0;
 }
-ul.breadcrumb li:last-child:after {
+ui-breadcrumb li:last-child:after {
     border: 0;
 }

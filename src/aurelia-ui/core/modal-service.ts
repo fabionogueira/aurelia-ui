@@ -102,13 +102,22 @@ class ModalStep {
 
         //se rota de modal
         if (routingContext.config.route.substring(0,6)=='modal/'){           
-            let url, el = <any>document.querySelector('modal-view');
-            let viewPortInstructions = routingContext.viewPortInstructions.default;
+            let url, viewModelInstance, param, viewPortInstructions,
+                el = <any>document.querySelector('modal-view');
 
             if (el){
+                viewPortInstructions = routingContext.viewPortInstructions.default;
+                viewModelInstance    = viewPortInstructions.component.viewModel;
+                param                = modalParams[routingContext.config.name];
+                url                  = routingContext.config.moduleId+'.html';
+
                 modalIndex++;
-                url = routingContext.config.moduleId+'.html';
-                el.au.controller.viewModel.loadView(modalIndex, url, viewPortInstructions.component.viewModel);
+                
+                if (viewModelInstance.setRouterParam && param){
+                    viewModelInstance.setRouterParam(routingContext.config.name, param)
+                }
+
+                el.au.controller.viewModel.loadView(modalIndex, url, viewModelInstance);
             }
 
             routerIsCanceled = true;

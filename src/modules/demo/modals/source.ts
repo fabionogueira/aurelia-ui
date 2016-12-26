@@ -1,8 +1,10 @@
-export class View1{
-    constructor(private text='View 01'){}
+export class Source{
+    sourceElement:HTMLElement;
 
-    setRouterParam(name, param){
-        console.log(name, param);
+    constructor(private source=''){}
+
+    setRouterParam(name, code){
+        this.source = code;
     }
 
     btCloseTap(){

@@ -1,14 +1,20 @@
+@import '_variables';
+
 /* list element */
-list, .list{
+ui-list, .ui-list{
+    border-color: @borderColor;
     overflow:auto;
+    display: block;
+    border-top-style: solid;
+    border-width: 1px;
 }
-list-block, .list-block {
+ui-list-block, .ui-list-block {
+    border-top: solid 1px @borderColor;
     display: block;
     margin: 32px 0;
     font-size: 16px;
-    border-top: solid 1px rgba(0,0,0,.12);
 }
-list-item,  .list-item{
+ui-list-item,  .ui-list-item{
     display:flex;
     position:relative;
     padding-left:16px; 
@@ -18,9 +24,20 @@ list-item,  .list-item{
     transition-duration: .3s;
     cursor: pointer;
 }
-list-item, .list-item icon{
+ui-list-item, .ui-list-item icon{
     width:24px;
     height:24px;
+}
+.list-title{
+    background: #f4f4f4;
+    color: rgba(0,0,0,.54);
+    padding: 0 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
 }
 .item-link{
     background-size:10px 20px; 
@@ -42,8 +59,8 @@ list-item, .list-item icon{
     border-radius: 50%;
 }
 .item-content{
+    border-bottom:solid 1px @borderColor;
     display:flex; 
-    border-bottom:solid 1px rgba(0,0,0,.12);
     width:100%; 
     min-height:48px; 
     align-items:center;
@@ -86,8 +103,8 @@ list-item, .list-item icon{
     display: -webkit-box;
 }
 .is-desktop .list-item:hover{
-    background-color: rgba(33, 150, 243, 0.11);
+    background-color: @mouseHoverBackground;
 }
-.list-item[is-pressed] {
-    background-color: rgba(0,0,0,.1)!important;
+ui-list-item, .ui-list-item[is-pressed] {
+    background-color: @mouseDownBackground!important;
 }
