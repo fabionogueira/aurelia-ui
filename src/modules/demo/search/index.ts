@@ -1,7 +1,16 @@
-export class Home{
-    userAgent: string
+export class DemoSearch{
+    private cars:string[];
+    private origialCars:string[];
+    search='';
+
     constructor(){
-        let s = navigator.userAgent;
-        this.userAgent = s;
+        this.cars = this.origialCars = ['Honda', 'Lexus', 'Mazda', 'Nissan', 'Toyota', 'Audi', 'BMW', 'Mercedes', 'Volkswagen', 'Volvo', 'Cadillac', 'Chrysler', 'Dodge', 'Ford'];
+    }
+
+    onChange(event){
+        this.cars = this.origialCars.filter((item) => {
+            return item.toLowerCase().search(event.value.toLowerCase())==-1 ? false : true;
+        });
+
     }
 }

@@ -1,0 +1,19 @@
+<template>
+    <page class="au-animate view-slider">
+        <page-header>
+            <button class="bt-menu" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </button>
+            <page-header-title style="flex:1">ui-slider</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/element/ui-slider/index', 'ui-slider-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
+        </page-header>
+        <page-content id="ui-slider-id">
+            <div class="content-block-title">Simple Slider</div>
+            <div class="content-block">
+                <ui-slider label="Slider"></ui-slider>
+            </div>
+        </page-content>
+    </page>
+</template>

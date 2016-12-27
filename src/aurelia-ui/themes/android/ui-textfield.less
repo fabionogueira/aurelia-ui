@@ -1,3 +1,9 @@
+@import '_variables';
+
+ui-textfield{
+    position:relative;
+}
+
 ui-textfield input{
     position: relative;
     background: transparent;
@@ -9,7 +15,7 @@ ui-textfield input{
     color: #212121;
     font-size: 16px;
     font-family: inherit;
-    border-bottom: solid 2px transparent;
+    border-bottom: solid 1px @borderColor;
 }
 ui-textfield label{
     display: block;
@@ -39,4 +45,27 @@ ui-textfield.floating[ui-element="active"] label{
 }
 ui-textfield.notnull:not([ui-element="active"]) label{
     transform: scale(1) translateY(0);
+}
+ui-textfield ui-button{
+    position: absolute;
+    top: 12px;
+    height: 24px;
+    min-width: 24px;
+    right: 0;
+    width: 24px;
+    border-radius: 50%;
+    display: none!important;
+}
+ui-textfield.focuset ui-button{
+    display:flex!important;
+}
+
+.ui-textfield-container{
+    align-items: center;    
+}
+.ui-textfield-container ui-textfield{
+    margin-left: -24px;    
+}
+.ui-textfield-container input{
+    padding-left: 30px;
 }

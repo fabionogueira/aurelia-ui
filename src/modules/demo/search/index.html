@@ -1,15 +1,24 @@
 <template>
     <page class="au-animate search">
         <page-header>
-            <button action-back>
-                <icon src="icon-arrow-back"></icon>
-            </button>
-            <page-header-title>
-                <ui-textfield placeholder="Search"></ui-textfield>
+            <ui-button class="button-page-header" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </ui-button>
+            <page-header-title style="flex:1">
+                <hbox set-active class="ui-textfield-container ui-textfield-clear">
+                    <icon src="icon-search"></icon>
+                    <ui-textfield value.bind="search" changed.delegate="onChange($event)" style="flex:1" show-close placeholder="Search"></ui-textfield>
+                </hbox>
             </page-header-title>
         </page-header>
         <page-content class="content-block">
-            
+            <ui-list>
+                <div repeat.for="car of cars" class="list-item item-link">
+                    <div class="item-content">
+                    <span style="flex:1;">${car}</span>
+                    </div>
+                </div>
+            </ui-list>
         </page-content>
     </page>
 </template>

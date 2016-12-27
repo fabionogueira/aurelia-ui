@@ -1,0 +1,25 @@
+<template>
+    <page class="au-animate view-textfield">
+        <page-header>
+            <button class="bt-menu" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </button>
+            <page-header-title style="flex:1">ui-textfield</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/element/ui-textfield/index', 'ui-textfield-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
+        </page-header>
+        <page-content id="ui-textfield-id">
+            <div class="content-block-title">Simple Textfield</div>
+            <div class="content-block">
+                <ui-textfield label="Name" placeholder="Your name"></ui-textfield>
+                <ui-textfield label="Bird date" type="date"></ui-textfield>
+            </div>
+            <div class="content-block-title">Textfield With Floating Labels</div>
+            <div class="content-block">
+                <ui-textfield class="floating" placeholder="Your name"></ui-textfield>
+                <ui-textfield class="floating" placeholder="E-mail"></ui-textfield>
+            </div>
+        </page-content>
+    </page>
+</template>

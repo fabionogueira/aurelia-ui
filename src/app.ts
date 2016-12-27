@@ -52,8 +52,12 @@ export class App {
         let a = html.match(/\**&lt;/);
         if (a){
           let s = a[0].replace('&lt;', '').replace(/\*/g, '\\*');
-          let r = new RegExp(s, 'g');
-          html = html.replace(r, '').replace(/\*/g, ' ');
+          let r = new RegExp(s);//, 'g');
+          s='';
+          html.split('\n').forEach(row=>{
+            s += (row.replace(r, '').replace(/\*/g, ' ') + '\n');
+          })
+          html = s;//html.replace(r, '').replace(/\*/g, ' ');
         }
 
         container.innerHTML = `<pre><code class="html" style="-webkit-user-select:all;">${html}</code></pre>`;
@@ -81,8 +85,8 @@ export class App {
     let a: any[]= [{ route: ['', 'home'], name: 'home', moduleId: 'modules/home/index' }];
 
     this.roters_css     = ['ui-card', 'ui-list', 'ui-breadcrumb'],
-    this.roters_element = ['ui-button','ui-checkbox','ui-radio', 'ui-drawer','ui-radio','ui-slider','ui-textfield'],
-    this.roters_demo    = ['form','checkbox','modals','search'];
+    this.roters_element = ['ui-button','ui-checkbox','ui-radio', 'ui-slider','ui-textfield', 'ui-drawer'],
+    this.roters_demo    = ['form','modals','search'];
 
     this.router = router;
     this.modalService.configure(config);
@@ -101,4 +105,3 @@ export class App {
     config.map(a);
   }
 }
-

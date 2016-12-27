@@ -89,7 +89,6 @@ export class AUI{
 } 
 
 export class DOMSelector {
-    
     static check = (element:HTMLElement, oSelector:ICssSelector):boolean => {
         return oSelector.fn(element, oSelector.v1, oSelector.v2);
     }
@@ -120,8 +119,7 @@ export class DOMSelector {
         }
 
         return null;
-    }
-    
+    }    
     static init = (selector) => {
         let fn, a, c, v1, v2;
 
@@ -170,6 +168,7 @@ export class DOMSelector {
 
         return DOMSelector_CACHE[selector];
     }
+    
     private static checkById = (element, v1)=>{
         return element.getAttribute('id')===v1;
     }

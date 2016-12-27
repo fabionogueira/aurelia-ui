@@ -6,7 +6,7 @@ declare var Hammer:any;
 
 let GLOBAL_OBSERVERS = {};
 let HAMMER = new Hammer(document.body);
-let OLD_ACTIVE_ELEMENT;
+let OLD_ACTIVE_ELEMENT={element:null, parents:[]};
 let MD_TARGET;
 let EVENTS_TRANSLATE = {
     tap: 'tap',
@@ -24,7 +24,7 @@ let dispatcher = {
         let g, controller, fn, customEvent;
         
         event = event || {};
-        event.$target = getTargetElement(event);
+        event.$target = getTargetElement(event) || element;
 
         //chama a função definida na viewModelm correspondente ao evento
         if (element){
@@ -49,7 +49,26 @@ let dispatcher = {
 
         //dispacha o evento para as instâncias do custom element
         customEvent._dispatcher = true;
-        event.$target.dispatchEvent(customEvent);
+        if (event.$target) event.$target.dispatchEvent(customEvent);
+    },
+
+    delegate: (eventName:string, event, element:HTMLElement) => {
+        let g, customEvent;
+        
+        event = event || {};
+        customEvent = createEvent(eventName, event);
+        
+        //dispacha o evento registrado globalmente
+        g = GLOBAL_OBSERVERS[eventName];
+        if (g){
+            g.forEach(fn=>{
+                fn(customEvent);
+            })
+        }
+
+        //dispacha o evento para as instâncias do custom element
+        customEvent._dispatcher = true;
+        element.dispatchEvent(customEvent);
     },
 
     on: (eventName:string, fn:Function)=>{
@@ -79,22 +98,39 @@ let dispatcher = {
 
 function updateActiveElement(){
     setTimeout(()=>{
-        let element = document.activeElement;
+        let a=[], element = document.activeElement;
         
-        if (OLD_ACTIVE_ELEMENT){
-            OLD_ACTIVE_ELEMENT.setAttribute('ui-element', '');
+        if (OLD_ACTIVE_ELEMENT.element){
+            OLD_ACTIVE_ELEMENT.element.setAttribute('ui-element', '');
+            OLD_ACTIVE_ELEMENT.parents.forEach(e=>{
+                e.setAttribute('set-active', '');
+            });
         }
 
-        OLD_ACTIVE_ELEMENT = null;
+        OLD_ACTIVE_ELEMENT.parents = [];
+        OLD_ACTIVE_ELEMENT.element = null;
 
-        while (element && element !== document.body){
-            if (element.getAttribute('ui-element')!=null){
-                OLD_ACTIVE_ELEMENT = element;
-                element.setAttribute('ui-element', 'active');
-                return;
+        while (element !== document.body){
+            if (element.getAttribute('set-active')!=null){
+                a.push(element);
             }
+
+            if (element.getAttribute('ui-element')!=null){
+                OLD_ACTIVE_ELEMENT.element = element;
+                OLD_ACTIVE_ELEMENT.parents = a;
+            }
+
             element = element.parentElement;
         }
+
+        if (OLD_ACTIVE_ELEMENT.element){
+            OLD_ACTIVE_ELEMENT.element.setAttribute('ui-element', 'active');
+                 
+            OLD_ACTIVE_ELEMENT.parents.forEach(e=>{
+                e.setAttribute('set-active', 'yes');
+            });
+        }
+
     },10);
 
     return null;
