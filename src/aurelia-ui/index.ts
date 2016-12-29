@@ -24,6 +24,7 @@ export function configure(config: FrameworkConfiguration, configure:Function) {
     './elements/ui-slider',
     './elements/ui-switch',
     './elements/ui-textfield',
+    './elements/ui-progress',
 
     './actions/action-back',
     './actions/action-target',

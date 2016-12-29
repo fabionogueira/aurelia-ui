@@ -10,7 +10,7 @@ import dispatcher from '../core/dispatcher';
 @customElement('ui-textfield')
 @inject(Element)
 export class UITextfield{
-    @bindable({defaultBindingMode: bindingMode.twoWay}) public value: string;
+    @bindable({defaultBindingMode: bindingMode.twoWay}) value: string;
     @bindable placeholder='';
     @bindable label='';
     @bindable type='text';

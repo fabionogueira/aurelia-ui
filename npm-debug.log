@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/local/bin/npm', 'run', 'build' ]
+2 info using npm@3.10.9
+3 info using node@v6.3.1
+4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
+5 info lifecycle aurelia-ui-app@0.1.0~prebuild: aurelia-ui-app@0.1.0
+6 silly lifecycle aurelia-ui-app@0.1.0~prebuild: no script for prebuild, continuing
+7 info lifecycle aurelia-ui-app@0.1.0~build: aurelia-ui-app@0.1.0
+8 verbose lifecycle aurelia-ui-app@0.1.0~build: unsafe-perm in lifecycle true
+9 verbose lifecycle aurelia-ui-app@0.1.0~build: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/home/fabio/Projetos/aurelia-ui/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+10 verbose lifecycle aurelia-ui-app@0.1.0~build: CWD: /home/fabio/Projetos/aurelia-ui
+11 silly lifecycle aurelia-ui-app@0.1.0~build: Args: [ '-c',
+11 silly lifecycle   'npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server' ]
+12 silly lifecycle aurelia-ui-app@0.1.0~build: Returned: code: 1  signal: null
+13 info lifecycle aurelia-ui-app@0.1.0~build: Failed to exec build script
+14 verbose stack Error: aurelia-ui-app@0.1.0 build: `npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:852:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+15 verbose pkgid aurelia-ui-app@0.1.0
+16 verbose cwd /home/fabio/Projetos/aurelia-ui
+17 error Linux 4.2.0-38-generic
+18 error argv "/usr/bin/nodejs" "/usr/local/bin/npm" "run" "build"
+19 error node v6.3.1
+20 error npm  v3.10.9
+21 error code ELIFECYCLE
+22 error aurelia-ui-app@0.1.0 build: `npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server`
+22 error Exit status 1
+23 error Failed at the aurelia-ui-app@0.1.0 build script 'npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the aurelia-ui-app package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     npm run au_build && npm run prepare_paths && npm run copy_index && npm run copy_favicon && npm run replace_index && npm run copy_vendor_bundle && npm run copy_app_bundle && npm run copy_hammer && npm run copy_to_server
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs aurelia-ui-app
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls aurelia-ui-app
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

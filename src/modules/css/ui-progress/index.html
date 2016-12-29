@@ -1,0 +1,49 @@
+<template>
+    <page class="au-animate">
+        <page-header style="justify-content:flex-start;">
+            <ui-button class="button-page-header" action-drawer="drawer1">
+                <icon src="icon-menu"></icon>
+            </ui-button>
+            <page-header-title style="flex:1">ui-progress</page-header-title>
+            <ui-button class="button-page-header" title="view source" tap.delegate="onViewCodeTap('modules/css/ui-progress/index', 'ui-progress-id')">
+                <icon src="icon-code"></icon>
+            </ui-button>
+        </page-header>
+        <page-content id="ui-progress-id" class="content-block">
+            <ui-card>
+                <div class="ui-card-header">Determinate Progress Bar</div>
+                <div class="ui-card-content">
+                    <ui-progress percent.bind="percent1"></ui-progress> 
+                    <hbox style="justify-content:space-around;margin-top:10px;">
+                        <ui-button class="raised" tap.delegate="setPercent(10)">10%</ui-button>
+                        <ui-button class="raised" tap.delegate="setPercent(30)">30%</ui-button>
+                        <ui-button class="raised" tap.delegate="setPercent(50)">50%</ui-button>
+                        <ui-button class="raised" tap.delegate="setPercent(100)">100%</ui-button>
+                    </hbox>                   
+                </div>
+
+                <div class="ui-card-header">Infinite Progress Bar</div>
+                <div class="ui-card-content">
+                    <ui-progress percent="infinite"></ui-progress>
+                </div>
+
+                <div class="ui-card-header">Progress Circular</div>
+                <div class="ui-card-content">
+                    <hbox style="justify-content:space-around;">
+                        <ui-progress type="circle" percent.bind="percent" style="color:brown"></ui-progress>
+                        <ui-progress type="circle" percent="25" fill="#FF9800" border-width="4"></ui-progress>
+                        <ui-progress type="circle" percent="50" border-color="red"></ui-progress>
+                        <ui-progress type="circle" percent="75" border-width="3"></ui-progress>
+                        <ui-progress type="circle" percent="90" fill="transparent"></ui-progress>
+                    </hbox>
+                </div>
+
+                <div class="ui-card-header">Progress Circular Infinite</div>
+                <div class="ui-card-content">
+                    <ui-progress type="circle" percent="infinite"></ui-progress>                    
+                </div>
+                
+            </ui-card>
+        </page-content>
+    </page>
+</template>
