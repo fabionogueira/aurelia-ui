@@ -4,7 +4,7 @@ ui-button{
     color: @primaryColor;
     text-decoration: none;
     text-align: center;
-    display: flex!important;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
@@ -28,62 +28,52 @@ ui-button{
     transform: translate3d(0,0,0);
 }
 ui-button[is-pressed] {
-    background: rgba(0,0,0,.1);
+    background: @mouseDownBackground;
 }
+
+//raised
 ui-button.raised {
-    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    .shadow-2;
 }
 ui-button.raised[is-pressed]{
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23)
+    .shadow-3;
 }
 
-ui-button.color-red:not(.fill)   {color: #f44336!important;}
-ui-button.color-green:not(.fill) {color: #4caf50!important;}
-ui-button.color-blue:not(.fill)  {color: #2196f3!important;}
-ui-button.color-orange:not(.fill){color: #ff9800!important;}
-ui-button.color-pink:not(.fill)  {color: #e91e63!important;}
-ui-button.color-purple:not(.fill){color: #9c27b0!important;}
-ui-button.color-cyan:not(.fill)  {color: #00bcd4!important;}
-ui-button.color-teal:not(.fill)  {color: #009688!important;}
-ui-button.color-indigo:not(.fill){color: #3f51b5!important;}
+//fill
+ui-button.fill {
+    background: @primaryColor;
+    color:@lightPrimaryText;
+    fill:@lightPrimaryText;
+}
+ui-button.fill[is-pressed] {
+    background:@primaryColor-600;
+}
+ui-button.fill-accent{
+    background: @accentColor;
+    color:@lightPrimaryText;
+    fill:@lightPrimaryText;
+}
+ui-button.fill-accent[is-pressed]{
+    background: @accentColor-700;
+}
 
-ui-button.fill,
-ui-button.fill.color-blue               {background: #2196f3!important;color:#fff;fill:#fff}
-ui-button.fill[is-pressed],
-ui-button.fill.color-blue[is-pressed]   {background: #0c82df!important;}
-
-ui-button.fill.color-red                {background: #f44336!important;color:#fff;fill:#fff}
-ui-button.fill.color-red[is-pressed]    {background: #d32f2f!important;}
-
-ui-button.fill.color-green              {background: #4caf50!important;color:#fff;fill:#fff}
-ui-button.fill.color-green[is-pressed]  {background: #388e3c!important;}
-
-ui-button.fill.color-orange             {background: #ff9800!important;color:#fff;fill:#fff}
-ui-button.fill.color-orange[is-pressed] {background: #f57c00!important;}
-
-ui-button.fill.color-pink               {background: #e91e63!important;color:#fff;fill:#fff}
-ui-button.fill.color-pink[is-pressed]   {background: #c2185b!important;}
-
-ui-button.fill.color-purple             {background: #9c27b0!important;color:#fff;fill:#fff}
-ui-button.fill.color-purple[is-pressed] {background: #7b1fa2!important;}
-
-ui-button.fill.color-cyan               {background: #00bcd4!important;color:#fff;fill:#fff}
-ui-button.fill.color-cyan[is-pressed]   {background: #0097a7!important;}
-
-ui-button.fill.color-teal               {background: #009688!important;color:#fff;fill:#fff}
-ui-button.fill.color-teal[is-pressed]   {background: #00897b!important;}
-
-ui-button.fill.color-indigo             {background: #3f51b5!important;color:#fff;fill:#fff}
-ui-button.fill.color-indigo[is-pressed] {background: #303f9f!important;}
-
+//floating
 ui-button.floating{
+    z-index: @z-index-ui-button-floating;
+    .shadow-3;
     min-width: 32px;
     width: 56px;
     height: 56px;
     line-height: 56px;
     padding: 0;
     border-radius: 50%;
-    z-index: @z-index-ui-button-floating;
-    box-shadow: 0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23);
     overflow: hidden;
+}
+ui-button.floating[is-pressed]{
+    .shadow-4;
+}
+
+//colors
+.accent-color{
+    color: @accentColor;
 }

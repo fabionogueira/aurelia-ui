@@ -1,4 +1,7 @@
 /**
+ * modal-service.ts
+ * @version 1.0.1
+ * @author Fábio Nogueira <fabio.bacabal@gmail.com>
  * @credits: http://stackoverflow.com/questions/29527389/how-do-you-use-viewcompiler-to-manually-compile-part-of-the-dom
  * @example
  * 
@@ -20,7 +23,7 @@
  */
 
 import {inject, noView, } from 'aurelia-framework';
-import {Router} from 'aurelia-router';
+import {Router, Redirect} from 'aurelia-router';
 import {AUI} from './index';
 
 let routerIsCanceled = false;
@@ -30,6 +33,7 @@ let routerInstance;
 let registeredCaptureCancel=[]
 let modalIndex=-1;
 let mouseUpTarget;
+let previousRoute;
 
 if (!location.hash){
     location.hash = '#/';
@@ -56,6 +60,14 @@ export class ModalService {
             }
 
             location.hash = '#/'+r.route;
+        }
+    }
+
+    static hide(routerName:string){
+        let r = getRouterByName(routerName);
+
+        if (r && `#/${r.route}`==location.hash){
+            history.back();
         }
     }
 
@@ -96,7 +108,14 @@ class ModalStep {
 
     run(routingContext, next) {
         
-        if (processRegisteredCancel('back')){
+        if (!previousRoute){
+            previousRoute = 1;
+            if ( (routingContext.config.route.substring(0,6)=='modal/') ){
+                return next.cancel(new Redirect('/'));
+            }
+        }
+
+        if (processRegisteredCancel('back') || routerIsCanceled){
             return next.cancel();
         }
 
@@ -137,10 +156,21 @@ window.addEventListener('popstate', (event) => {
         return location.hash = '#/';
     }
 
-    if (!routerIsCanceled && !isModalOpennig && modalIndex > -1){
-        let url, el = <any>document.querySelector('modal-view');
-        if (el){
-            el.au.controller.viewModel.unloadView(modalIndex--);
+    if (!processRegisteredCancel('back')){
+        if (!routerIsCanceled && !isModalOpennig && modalIndex > -1){
+            let url, viewModel,
+                canUnload = true,
+                el = <any>document.querySelector('modal-view');
+
+            if (el){
+                viewModel = el.au.controller.viewModel[`viewModel${el._viewStrategyIndex}`]; //_viewStrategyIndex é adicionado no elemento em modal-view.ts
+
+                if (viewModel && viewModel.canModalHide && viewModel.canModalHide()===false){
+                    return routerIsCanceled=true;
+                }
+
+                el.au.controller.viewModel.unloadView(modalIndex--);
+            }
         }
     }
 

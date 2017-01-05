@@ -15,16 +15,17 @@ ui-radio input{
     display: none;
 }
 ui-radio div{
+    border: 2px solid @darkSecondaryTextEx;
     width: 20px;
     height: 20px;
     position: relative;
     border-radius: 50%;
-    border: 2px solid #6d6d6d;
     box-sizing: border-box;
     transition-duration: .3s;
     background: 0 0;
 }
 ui-radio span {
+    background-color: @primaryColor;
     display: none;
     border-radius: 50%;
     margin-left: 3px;
@@ -32,15 +33,10 @@ ui-radio span {
     height: 10px;
     width: 10px;
     background-size: 100% auto;
-    background-color: #2196f3;
 }
 ui-radio input:checked+div{
-    border-color: #2196f3;
+    border-color: @primaryColor;
 }
 ui-radio input:checked+div span{
     display: block;
 }
-
-/*
-
-*/

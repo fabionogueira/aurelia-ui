@@ -4,27 +4,28 @@ ui-checkbox{
     position:relative;
 }
 ui-checkbox input{
+    z-index: @z-index-ui-checkbox-input;
     position:absolute;
     margin:0;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    z-index: @z-index-ui-checkbox-input;
     opacity: 0;
     display: none;
 }
 ui-checkbox div{
+    border: 2px solid @darkSecondaryTextEx;
     width: 18px;
     height: 18px;
     position: relative;
     border-radius: 2px;
-    border: 2px solid #6d6d6d;
     box-sizing: border-box;
     transition-duration: .3s;
     background: 0 0;
 }
 ui-checkbox span {
+    background-color: @primaryColor;
     display: none;
     border-radius: 4px;
     margin-left: -2px;
@@ -33,12 +34,7 @@ ui-checkbox span {
     width: 18px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20fill%3D'%23ffffff'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M9%2016.17L4.83%2012l-1.42%201.41L9%2019%2021%207l-1.41-1.41z'%2F%3E%3C%2Fsvg%3E");
     background-size: 100% auto;
-    background-color: #2196f3;
 }
 ui-checkbox input:checked+div span{
     display: block;
 }
-
-/*
-
-*/

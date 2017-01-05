@@ -84,8 +84,8 @@ export class App {
   configureRouter(config, router) {
     let a: any[]= [{ route: ['', 'home'], name: 'home', moduleId: 'modules/home/index' }];
 
-    this.roters_css     = ['ui-card', 'ui-list', 'ui-breadcrumb', 'ui-progress'],
-    this.roters_element = ['ui-button','ui-checkbox','ui-radio', 'ui-slider','ui-textfield', 'ui-drawer'],
+    this.roters_css     = ['ui-card', 'ui-list', 'ui-breadcrumb'],
+    this.roters_element = ['ui-button','ui-checkbox','ui-radio', 'ui-slider','ui-textfield', 'ui-progress', 'ui-drawer'],
     this.roters_demo    = ['form','modals','search'];
 
     this.router = router;

@@ -1,17 +1,3 @@
-
-@z-index-ui-checkbox-input:           1;
-@z-index-ui-radio-input:              1;
-@z-index-ui-slider-input:             1;
-@z-index-ui-switch-input:             1;
-@z-index-ui-animate-leave-active:     2;
-@z-index-ui-animate-enter-active:     4;
-@z-index-ui-layout-page-header:      10;
-@z-index-ui-button-floating:         20;
-@z-index-ui-drawer:                  30;
-@z-index-modal:                      40;
-@z-index-ui-layout-popup-modal-view: 50;
-@z-index-ui-layout-popup-overlay:    60;
-
 //Theme base colors
 @primaryColor    : #2196F3;
 @accentColor     : #FF5252;
@@ -43,15 +29,20 @@
 
 //Dark Background/Text colors
 @darkSecondaryText  : fade(@darkPrimaryText, 70%);
+@darkSecondaryTextEx: fade(@darkPrimaryText, 60%);
 @darkDisabledText   : fade(@darkPrimaryText, 50%); //hint, icons
+@darkDividersEx     : fade(@darkPrimaryText, 35%);
 @darkDividers       : fade(@darkPrimaryText, 12%);
 
 //Outhes
-@statusBarColor:   @primaryColor;
-@appBarColor:      @primaryColor-600;
-@windowBackground: lighten(@darkPrimaryText, 31%);
-@dialog:           @lightPrimaryText;
+@statusBarColor:    @primaryColor;
+@appBarColor:       @primaryColor-600;
+@windowBackground:  lighten(@darkPrimaryText, 31%);
+@dialog:            @lightPrimaryText;
+@overlayBackground: rgba(0,0,0,.4);
 
 @borderColor: #e1e1e1;
 @mouseHoverBackground: rgba(33, 150, 243, 0.11);
 @mouseDownBackground: rgba(0,0,0,.1);
+
+

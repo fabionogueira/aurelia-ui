@@ -14,7 +14,7 @@ ui-list-block, .ui-list-block {
     margin: 32px 0;
     font-size: 16px;
 }
-ui-list-item,  .ui-list-item{
+ui-list-item, list-item,  .ui-list-item, .list-item{
     display:flex;
     position:relative;
     padding-left:16px; 
@@ -24,13 +24,16 @@ ui-list-item,  .ui-list-item{
     transition-duration: .3s;
     cursor: pointer;
 }
-ui-list-item, .ui-list-item icon{
+ui-list-item icon, .ui-list-item icon{
     width:24px;
     height:24px;
 }
+ui-list-item, .ui-list-item[is-pressed] {
+    background-color: @mouseDownBackground!important;
+}
 .list-title{
-    background: #f4f4f4;
-    color: rgba(0,0,0,.54);
+    background: @darkDividers;
+    color: @darkSecondaryText;
     padding: 0 16px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -92,7 +95,7 @@ ui-list-item, .ui-list-item icon{
 }
 .item-text{
     font-size: 14px;
-    color: #757575;
+    color: @darkSecondaryTextEx;
     line-height: 20px;
     position: relative;
     overflow: hidden;
@@ -105,6 +108,6 @@ ui-list-item, .ui-list-item icon{
 .is-desktop .list-item:hover{
     background-color: @mouseHoverBackground;
 }
-ui-list-item, .ui-list-item[is-pressed] {
+.list-item[is-pressed] {
     background-color: @mouseDownBackground!important;
 }

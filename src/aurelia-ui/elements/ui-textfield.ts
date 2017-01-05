@@ -1,11 +1,12 @@
 import {inject, bindable, customElement, inlineView, bindingMode} from 'aurelia-framework';
 import {UIElementInit} from '../core/ui-element';
+import {DOMSelector} from '../core/index';
 import dispatcher from '../core/dispatcher';
 
 @inlineView('<template>'+
                  '<label>${label}</label>'+
                  '<input type="${type}" placeholder="${placeholder}" value.bind="value" />'+
-                 '<ui-button tap.delegate="onButtonTap()" if.bind="showClose!==undefined"><icon src="icon-close"></icon></ui-button>'+
+                 '<ui-button style="display:none" click.delegate="onBtnClose_Click()"><icon src="icon-close"></icon></ui-button>'+
              '</template>')
 @customElement('ui-textfield')
 @inject(Element)
@@ -16,27 +17,55 @@ export class UITextfield{
     @bindable type='text';
     @bindable showClose;
 
-    private element;
-    private timerBlur;
+    private element:HTMLElement;
+    private input:HTMLElement;
+    private button:HTMLElement;
 
     constructor(element){
         this.element = element;    
         UIElementInit(this, element);
     }
 
-    attached(){
+    beforeFocus(){
+        this.input.focus();
+        if (this.showClose!=undefined){
+            this.button.style.display = 'flex';
+        }
+    }
+
+    beforeBlur(event){
+        let target;
+
+        //dispara o evento blur, evitando que entre em loop infinito
+        if (event.preventLoop) return;
+        dispatcher.delegate('blur', {preventLoop:true}, this.element);
+
+        if (this.showClose!=undefined){
+
+            //retorna o foco caso ocorreu click no botão do ui-textfield
+            target = DOMSelector.closet(event.relatedTarget, 'ui-button');
+            if (target==this.button){
+                return this.input.focus();
+            }
+            
+            this.button.style.display = 'none';
+        }
+    }
+
+    created(){
+        this.input  = <HTMLInputElement>this.element.children[1];
+        this.button = <HTMLElement>this.element.children[2];
+
         if (this.showClose!=undefined){
             let onFocus = ()=>{
-                this.element.classList.add('focuset');
+                this.beforeFocus();
             };
-            let onBlur = ()=>{
-                this.timerBlur = setTimeout(()=>{
-                    if (!this.value) this.element.classList.remove('focuset');
-                },400);
+            let onBlur = (event)=>{
+                this.beforeBlur(event);
             };
 
-            this.element.children[1].onfocus= onFocus;
-            this.element.children[1].onblur = onBlur;
+            this.input.onfocus= onFocus;
+            this.input.onblur = onBlur;
         }
 
         if (this.element.classList.contains('floating')){
@@ -50,9 +79,11 @@ export class UITextfield{
         dispatcher.delegate('changed', {value:value}, this.element);
     }
 
-    onButtonTap(){
+    public focus(){
+        this.input.focus();
+    }
+
+    private onBtnClose_Click(){
         this.value = '';
-        clearTimeout(this.timerBlur);
-        this.element.children[1].focus();
     }
 }

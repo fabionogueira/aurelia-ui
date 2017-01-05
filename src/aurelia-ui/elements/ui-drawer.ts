@@ -8,7 +8,7 @@ let DRAWERS = {};
 
 @inlineView(`
 <template>
-    <div class="ui-drawer-obfuscator" tap.delegate="onObfuscatorClick()"></div>
+    <div class="ui-drawer-obfuscator" click.delegate="onObfuscatorClick()"></div>
     <div class="ui-drawer-content">
         <slot></slot>
     </div>
@@ -99,7 +99,9 @@ Action.register('drawer', 'tap', (evt, name)=>{
     let d = DRAWERS[name];
 
     if (d){
-        d.au.controller.viewModel.show();
+        setTimeout(()=>{
+            d.au.controller.viewModel.show();
+        },10);
     }
 });
 

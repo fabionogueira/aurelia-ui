@@ -53,7 +53,7 @@ ui-progress {
     justify-content: center;
     font-size: 10px;
     border-radius: 50%;
-    background: rgba(158, 158, 158, 0.23);
+    background: @darkDividers;
 }
 @keyframes rotate {
   100% {transform: rotate(360deg);}
@@ -66,14 +66,14 @@ ui-progress {
 
 //bar
 .ui-progress-b{
+    background: @primaryColor-100;
     height: 4px;
-    background: rgba(33,150,243,.5);
     overflow: hidden;
     width: 100%;
 }
 .ui-progress-bar{
+    background: @primaryColor;
     width: 100%;
-    background: #2196f3;
     height: 100%;
     position: absolute;
     left: 0;
@@ -82,9 +82,9 @@ ui-progress {
     transition-duration: 150ms;
 }
 .ui-progress-bar-infinite:before {
+    background-color: @primaryColor;
     content: '';
     position: absolute;
-    background-color: #2196f3;
     top: 0;
     left: 0;
     bottom: 0;
@@ -95,7 +95,7 @@ ui-progress {
 .ui-progress-bar-infinite:after {
     content: '';
     position: absolute;
-    background-color: #2196f3;
+    background-color: @primaryColor;
     top: 0;
     left: 0;
     bottom: 0;

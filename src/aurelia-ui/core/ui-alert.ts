@@ -1,4 +1,8 @@
 /**
+ * ui-alert.ts
+ * @version 1.0.0
+ * @author Fábio Nogueira <fabio.bacabal@gmail.com>
+ * 
  * @example
  * alert.show('Simple alert show', 'Aurelia UI');
  * alert.show('Are you feel good today?', 'Aurelia UI', ['Cancelar', '<b>OK</b>'])
@@ -20,6 +24,8 @@
 import {inject, noView} from 'aurelia-framework';
 import {Compiler} from './compiler';
 import {ModalService} from './modal-service';
+
+let oldActiveFocus;
 
 @noView
 @inject(Compiler)
@@ -49,7 +55,7 @@ export class UIAlert{
         
         template =
         `<div class="au-animate modal modal-overlay"> 
-            <div class="vbox modal-alert">
+            <div class="vbox modal-alert" tabindex="1" style="outline:none;">
                 <div class="vbox">`+
                     (title ? (`<div class="modal-alert-title">${title}</div>`) : '' )+
                     `<div class="modal-alert-text">${text}</div>`+
@@ -65,7 +71,11 @@ export class UIAlert{
         this.context.onTap = (index) => {this.context.UIAlert.hide(index);}
         this.context.data = {};
 
-        this.remove = this.compiler.compile(template, this.context);
+        oldActiveFocus = document.activeElement;
+
+        this.remove = this.compiler.compile(template, this.context, (viewElement)=>{
+            viewElement.firstChild.children[0].focus();
+        });
 
         ModalService.captureCancel(this.cancelHandle, this);
 
@@ -101,6 +111,12 @@ export class UIAlert{
                 o = JSON.parse(JSON.stringify(this.context.data));                
                 e.fn(index, o);
             }
+
+            if (oldActiveFocus){
+                oldActiveFocus.focus();
+            }
+
+            oldActiveFocus = null;
         }
     }
 }

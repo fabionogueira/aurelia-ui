@@ -18,28 +18,48 @@ icon{display:block;position:relative;}
 icon svg{fill:inherit}
 
 /* native elements */
-a, input, select, textarea, button {outline:0;}
+* {outline:0;}
 a{color:inherit; text-decoration:none;}
 button{transition-duration: .3s; background:transparent; border:none; cursor:pointer;}
 button[is-pressed]{background:rgba(0,0,0,.1);}
 
 /* page element */
-page{box-shadow: 0 0 6px rgba(45, 45, 45, 0.14);background:@dialog}
-page{display:block; position:absolute; top:0; left:0; width:100%; height:100%}
-page-content{position:absolute; overflow:auto; left:0; width:100%; top:56px; bottom:0; padding-bottom:20px;}
-.button-page-header{padding:0 16px; height:100%;}
-.page-container{display:block; position:absolute; top:0; left:0; right:0; bottom:0}
+page{
+    background:@dialog;
+    .shadow-1;
+}
+page{
+    display:block;
+    .absolute-full-percent;
+}
+page-content{
+    position:absolute;
+    overflow:auto;
+    left:0;
+    width:100%;
+    top:56px;
+    bottom:0;
+    padding-bottom:20px;
+}
+.button-page-header{
+    padding:0 16px;
+    height:100%;
+}
+.page-container{
+    display:block;
+    .absolute-full;
+}
 .content-block{
     margin: 32px 0;
     padding: 0 16px;
 }
 
 .popup-overlay{
+    z-index: @z-index-ui-layout-popup-overlay;
     display:block;
     position:fixed;
     top:0;
     left:0;
-    z-index: @z-index-ui-layout-popup-overlay;
     background: rgba(0,0,0,.4);
 }
 .popup-overlay page{
@@ -47,11 +67,36 @@ page-content{position:absolute; overflow:auto; left:0; width:100%; top:56px; bot
 }
 
 modal-view{
+    z-index: @z-index-ui-layout-popup-modal-view;
     position:fixed;
     top:0;
     left:0;
-    z-index: @z-index-ui-layout-popup-modal-view;
 }
 modal-view page{
     position:fixed;
 }
+
+
+/* comportamento com tela de 780px ou mais */
+@media screen and (min-width: 780px) and (orientation: landscape) {
+    compose.modal-activate{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(123, 123, 123, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    compose.modal-activate page{
+        position: relative;
+        min-width: 500px;
+        min-height: 400px;
+        width: initial;
+        height: initial;
+        .shadow-3;
+    }
+}
+

@@ -7,13 +7,13 @@
 .default();
 
 ui-card, .ui-card{
-    display: block;
     background:@ui-card-background;
+    display: block;
     margin: 8px;
     position: relative;
     border-radius: 2px;
     font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+    .shadow-1;
 }
 .ui-card-content {
     position: relative;
@@ -33,11 +33,11 @@ ui-card, .ui-card{
     font-size: 16px;
 }
 .ui-card-footer {
+    color: @darkSecondaryText; //#757575;
     border-radius: 0 0 2px 2px;
-    color: #757575;
 }
 .ui-card-image{
+    color:@lightPrimaryText;
     height:190px;
-    color:#fff;
     align-items: flex-end;
 }

@@ -7,7 +7,12 @@ Action.register('target', '*', (eventName:string, selector:string, element:HTMLE
     
     if (selector){
         e = DOMSelector.find(element, selector);
+        
         if (e){
+            if (event._dispatcherId && e._dispatchers && event._dispatcherId==e._dispatchers[eventName]){
+                return;
+            }
+
             dispatcher.emit(eventName, event, e);
         }
     }

@@ -4,6 +4,7 @@ import {Action, AUI} from './index';
 
 declare var Hammer:any;
 
+let dispatcherId = 0;;
 let GLOBAL_OBSERVERS = {};
 let HAMMER = new Hammer(document.body);
 let OLD_ACTIVE_ELEMENT={element:null, parents:[]};
@@ -23,10 +24,16 @@ let dispatcher = {
     emit: (eventName:string, event, element?:HTMLElement) => {
         let g, controller, fn, customEvent;
         
-        event = event || {};
-        event.$target = getTargetElement(event) || element;
+        dispatcherId++;
 
-        //chama a função definida na viewModelm correspondente ao evento
+        event = event || {};
+        event.$target = element || getTargetElement(event) || element;
+        registerDispatcherId(event, eventName, event.$target, dispatcherId);
+        
+        customEvent = createEvent(eventName, event);
+        registerDispatcherId(customEvent, eventName, event.$target, dispatcherId);
+
+        //chama a função definida na viewModel correspondente ao evento
         if (element){
             controller = element['au'].controller;
             if (controller){
@@ -36,8 +43,6 @@ let dispatcher = {
                 }
             }
         }
-
-        customEvent = createEvent(eventName, event);
         
         //dispacha o evento registrado globalmente
         g = GLOBAL_OBSERVERS[eventName];
@@ -48,7 +53,7 @@ let dispatcher = {
         }
 
         //dispacha o evento para as instâncias do custom element
-        customEvent._dispatcher = true;
+        event._dispatcher = customEvent._dispatcher = true;
         if (event.$target) event.$target.dispatchEvent(customEvent);
     },
 
@@ -93,9 +98,18 @@ let dispatcher = {
                 }
             }
         }
-    }
+    },
+
+    updateActiveElement: updateActiveElement
 }
 
+function registerDispatcherId(event, name, element, id){
+    event._dispatcherId = id;
+    if (element){
+        element._dispatchers = element._dispatchers || {};
+        element._dispatchers[name] = id;
+    }
+}
 function updateActiveElement(){
     setTimeout(()=>{
         let a=[], element = document.activeElement;
